@@ -12,3 +12,7 @@ git log --pretty=oneline --abbrev-commit RC0..HEAD > releaseTickets.txt
 
 ## Clean whitespace before pushing
 git diff --name-only HEAD~1 HEAD | parallel --bar ../removeTrailing.sh
+
+## Reset the state of the repo and get rid of all unversioned files (build artifacts)
+git clean -xfd
+git reset --hard

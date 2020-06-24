@@ -16,3 +16,6 @@ git diff --name-only HEAD~1 HEAD | parallel --bar ../removeTrailing.sh
 ## Reset the state of the repo and get rid of all unversioned files (build artifacts)
 git clean -xfd
 git reset --hard
+
+## Push the current commit to /refs/for/master
+git push --porcelain --progress origin refs/heads/master:refs/for/master

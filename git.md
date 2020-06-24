@@ -19,3 +19,23 @@ git reset --hard
 
 ## Push the current commit to /refs/for/master
 git push --porcelain --progress origin refs/heads/master:refs/for/master
+
+## Create a patch (file) of the last commit
+$ git format-patch -n HEAD^
+output: 0001-test_sdk_core-added-missing-checks-for-different-SDK.patch
+
+## Check and apply patch file
+
+### See what would be changed
+$ git apply --stat ../LumiSuite_clean/0001-fakename.patch
+ > .../Test/fakename/fakename.cpp             |   28 +++++++++++---------  
+ > 1 file changed, 16 insertions(+), 12 deletions(-)
+
+### See if there are issues (merge conflicts)
+$ git apply --check ../LumiSuite_clean/0001-fakename.patch
+
+### Apply it finally
+$ git am ../LumiSuite_clean/0001-fakename.patch
+> Applying: fakename: added missing checks for different SDK-method-calls; fixed some typos
+
+

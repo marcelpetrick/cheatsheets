@@ -15,3 +15,6 @@
 
 ## find all tickets processed by me
 resolved >= -999w AND assignee in (currentUser()) ORDER BY updated DESC
+
+## Find all tickets whcih belong to a certain project and release and which are not done
+project = myPROJECT AND fixVersion = 1.33.7 AND resolution = Unresolved ORDER BY remainingEstimate DESC, priority DESC, updated DESC

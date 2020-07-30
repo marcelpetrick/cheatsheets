@@ -16,5 +16,8 @@
 ## find all tickets processed by me
 resolved >= -999w AND assignee in (currentUser()) ORDER BY updated DESC
 
-## Find all tickets whcih belong to a certain project and release and which are not done
+## Find all tickets which belong to a certain project and release and which are not done
 project = myPROJECT AND fixVersion = 1.33.7 AND resolution = Unresolved ORDER BY remainingEstimate DESC, priority DESC, updated DESC
+
+## Find all bug-tickets from current project and version, which were resolved in less than one hour
+project = 10204 AND fixVersion = 13638 AND type = Bug AND timeSpent < 1h

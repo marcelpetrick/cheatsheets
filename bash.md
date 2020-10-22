@@ -4,3 +4,8 @@
 ```
 find . | sed -e "s/[^-][^\/]*\// |/g" -e "s/|\([^ ]\)/|-\1/"
 ```
+
+## show current load (periodically; 1/sec)
+```
+while true; do cat /proc/loadavg; sleep 1; done
+```

@@ -22,3 +22,6 @@
 > Removing installed version 6.1.2 of VirtualBox Guest Additions...  
 > update-initramfs: Generating /boot/initrd.img-5.3.0-64-generic  
 > [..]
+
+* then select during runtime "display" and assign screens to the virtual monitors. Moving the additional windows (!; virtual monitors) to the respective physical displays and then going fullscreen works
+* inside Kubuntu: "Display configuration" and enable the second monitor (set Enabled true and also select a resolution!)

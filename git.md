@@ -10,6 +10,9 @@ git shortlog -sne --no-merges
 ## Create shortlog with all tickets on the current releasebranch
 git log --pretty=oneline --abbrev-commit RC0..HEAD > releaseTickets.txt
 
+## Amount of changes (lines and which files) in the last commit
+git show HEAD --stat
+
 ## Clean whitespace before pushing
 git diff --name-only HEAD~1 HEAD | parallel --bar ../removeTrailing.sh
 

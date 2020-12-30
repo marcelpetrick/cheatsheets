@@ -12,4 +12,4 @@ WIN + D
 ## Activate hibernate in case it is missing from any kind of Win10 energy-options/savings-menu
 * terminal as admin
 * $ powercfg /hibernate on
-* as a result the hiberfil.sys should be put to C:
+* as a result the hiberfil.sys should be put to C:\\

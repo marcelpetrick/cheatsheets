@@ -23,9 +23,13 @@ git reset --hard
 ## Push the current commit to /refs/for/master
 git push --porcelain --progress origin refs/heads/master:refs/for/master
 
+## Fix tracked branch (within the current repo) - local one equal to remote, but not tracked (before)
+$ git branch -u origin/Task3917  
+Branch 'Task3917' set up to track remote branch 'Task3917' from 'origin'.
+
 ## Create a patch (file) of the last commit
-$ git format-patch -n HEAD^
-output: 0001-test_sdk_core-added-missing-checks-for-different-SDK.patch
+    $ git format-patch -n HEAD^
+    output: 0001-test_sdk_core-added-missing-checks-for-different-SDK.patch
 
 ## Check and apply patch file
 

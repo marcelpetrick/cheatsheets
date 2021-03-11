@@ -22,3 +22,8 @@ $ find / -name libSpellChecker.so 2> /dev/null
 /home/mp/Documents/p118/Qt/Tools/QtCreator/lib/qtcreator/plugins/libSpellChecker.so
 /home/mp/Downloads/lib/qtcreator/plugins/libSpellChecker.so
 ```
+
+## copy with file-progress)
+```
+rsync -ah --progress source destination
+```

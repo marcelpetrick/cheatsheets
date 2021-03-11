@@ -27,3 +27,6 @@ $ find / -name libSpellChecker.so 2> /dev/null
 ```
 rsync -ah --progress source destination
 ```
+
+## ssh with cleartext password (but if paste does not work..)
+```sshpass -p 'YourPassword' ssh user@host```

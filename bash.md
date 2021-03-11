@@ -30,3 +30,19 @@ rsync -ah --progress source destination
 
 ## ssh with cleartext password (but if paste does not work..)
 ```sshpass -p 'YourPassword' ssh user@host```
+
+# fresh HMI (just fab image without app): nothing works
+
+### find the usb media (not auto mounted!)
+```$ dmesg | tail -f```
+or
+```$ fdisk -l```
+
+### mount (auto did not work as param for FAT32, so say explicitly vfat!)
+```$ mount -t vfat /dev/sda /run/media/usbsticky```
+
+### rauc it
+```$ rauc install /run/media/usbsticky/xyz.raucb```
+
+### reboot
+```$ shutdown -r now```

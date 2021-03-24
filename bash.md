@@ -46,3 +46,10 @@ or
 
 ### reboot
 ```$ shutdown -r now```
+
+## binary file not executable? "No suche file or directory" - despite existing file and chmod +X ..
+### check ELF information
+```readelf -h binFile```
+
+### install fitting 32 bit architecture
+```sudo apt-get install libc6-i386```

@@ -53,3 +53,6 @@ or
 
 ### install fitting 32 bit architecture
 ```sudo apt-get install libc6-i386```
+
+## show (usb) block devices
+```lsblk```

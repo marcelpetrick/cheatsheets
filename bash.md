@@ -56,3 +56,7 @@ or
 
 ## show (usb) block devices
 ```lsblk```
+
+## update the system and get rid of old crap (reained packages..)
+```sudo apt-get update && sudo apt-get dist-upgrade && sudo apt-get autoremove && sudo apt-get autoclean```
+

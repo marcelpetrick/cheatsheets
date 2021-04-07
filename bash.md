@@ -57,6 +57,7 @@ or
 ## show (usb) block devices
 ```lsblk```
 
-## update the system and get rid of old crap (reained packages..)
+## update the system and get rid of old crap (retained packages..)
+("dist-upgrade" instead of "upgrade" also resolves dependencies; if this is not wanted, then just use "upgrade")
 ```sudo apt-get update && sudo apt-get dist-upgrade && sudo apt-get autoremove && sudo apt-get autoclean```
 

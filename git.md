@@ -44,3 +44,6 @@
 ### Apply it finally
     $ git am ../LumiSuite_clean/0001-fakename.patch
     > Applying: fakename: added missing checks for different SDK-method-calls; fixed some typos
+
+## List all files of certain type in the repo
+```git ls-files '*.svg'```

@@ -20,3 +20,6 @@ CTRL + SHIFT + ESC
 
 ## Show desktop
 WIN + D
+
+## Backup manually the VM to external SSD
+```robocopy c:\Repos\kubuntu20.04 D:\vmBackups\20210423\ /MIR /MT:8```

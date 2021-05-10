@@ -65,3 +65,5 @@ or
 'cat' first the file, then copy&paste to some editor on the host system, the pipe it into the old file via
 ```cat > fileToEdit.conf``` && copy&paste && escape via CTRL+C.
 
+## search and re-run a command
+"Type <Ctrl+R> at the command line and start typing the previous command. Once a result appears keep hitting <Ctrl+R> to see other matches. When the command you want appears, simply press <Enter>"

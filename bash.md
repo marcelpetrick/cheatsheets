@@ -67,3 +67,9 @@ or
 
 ## search and re-run a command
 "Type <Ctrl+R> at the command line and start typing the previous command. Once a result appears keep hitting <Ctrl+R> to see other matches. When the command you want appears, simply press <Enter>"
+  
+## Find out current distribution version
+```lsb_release -a```
+
+## Check details (like: which Kubuntu version)
+```kinfocenter```

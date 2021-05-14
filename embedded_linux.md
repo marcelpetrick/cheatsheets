@@ -1,0 +1,6 @@
+# i.MX 8
+
+## read CPU temperature
+* A53 cores  
+```cat /sys/devices/virtual/thermal/thermal_zone0/temp  ```  
+see <https://developer.toradex.com/knowledge-base/temperature-sensor-linux>

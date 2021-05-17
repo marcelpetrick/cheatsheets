@@ -73,3 +73,6 @@ or
 
 ## Check details (like: which Kubuntu version)
 ```kinfocenter```
+
+## mp3gain recursively (89 dB)
+```find ./ -type d -exec bash -c 'cd "$1"; mp3gain -a -k -m 3 *.mp3' -- {} \;```

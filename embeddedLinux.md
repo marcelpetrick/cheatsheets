@@ -6,4 +6,4 @@
 see <https://developer.toradex.com/knowledge-base/temperature-sensor-linux>
 
 ## eMMC health
-<https://developer.toradex.com/knowledge-base/emmc-linux#Health_Status>
+* something like SMART: <https://developer.toradex.com/knowledge-base/emmc-linux#Health_Status>

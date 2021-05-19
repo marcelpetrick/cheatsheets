@@ -6,6 +6,12 @@
 
 ## Commits per author (requires proper mailmap)
     git shortlog -sne --no-merges
+    
+### ... and since a certain date for "me"
+```
+git shortlog -sne --no-merges --since="2020-09-01" | grep Petrick
+42  Marcel Petrick <mpetrick@___.com>
+```
 
 ## Create shortlog with all tickets on the current releasebranch
     git log --pretty=oneline --abbrev-commit RC0..HEAD > releaseTickets.txt

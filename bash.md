@@ -76,3 +76,8 @@ or
 
 ## mp3gain recursively (89 dB)
 ```find ./ -type d -exec bash -c 'cd "$1"; mp3gain -a -k -m 3 *.mp3' -- {} \;```
+
+## check where a symlink leads to
+```$ readlink -f /usr/bin/ld
+/usr/bin/x86_64-linux-gnu-ld.bfd
+```

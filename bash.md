@@ -82,3 +82,11 @@ or
 $ readlink -f /usr/bin/ld
 /usr/bin/x86_64-linux-gnu-ld.bfd
 ```
+  
+## connmanctl for tethering
+```
+connmanctl tether wifi on Bananen brotbrot
+Wifi SSID set
+Wifi passphrase set
+Enabled tethering for wifi
+```

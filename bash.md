@@ -90,3 +90,9 @@ Wifi SSID set
 Wifi passphrase set
 Enabled tethering for wifi
 ```
+
+## find all files of certain type which DON't contain certain string
+example: "copyright" for the license in qml-files:
+```
+$ grep -inr --include \*.qml -L "Copyright" .
+```

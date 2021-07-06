@@ -100,4 +100,6 @@ $ grep -inr --include \*.qml -L "Copyright" .
 ```
 systemctl list-unit-files | grep enabled will list all enabled ones
 ```
-  
+
+# sound mixer
+$ alsamixer

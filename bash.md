@@ -68,13 +68,13 @@ or
 ## search and re-run a command
 "Type <Ctrl+R> at the command line and start typing the previous command. Once a result appears keep hitting <Ctrl+R> to see other matches. When the command you want appears, simply press <Enter>"
   
-## Find out current distribution version
+## find out current distribution version
 ```lsb_release -a```
 
-## Check details (like: which Kubuntu version)
+## check details (like: which Kubuntu version)
 ```kinfocenter```
 
-## mp3gain recursively (89 dB)
+## apply mp3gain recursively (89 dB)
 ```find ./ -type d -exec bash -c 'cd "$1"; mp3gain -a -k -m 3 *.mp3' -- {} \;```
 
 ## check where a symlink leads to
@@ -96,3 +96,8 @@ example: "copyright" for the license in qml-files:
 ```
 $ grep -inr --include \*.qml -L "Copyright" .
 ```
+## check which systemd services are configured (and enabled)
+```
+systemctl list-unit-files | grep enabled will list all enabled ones
+```
+  

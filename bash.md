@@ -1,5 +1,7 @@
 # Cheat sheet for bash (should work with most other shells and unix-like toolbox)
 
+general hints: [in german](http://kirste.userpage.fu-berlin.de/chemnet/general/topics/scripts_sh.html)
+
 ## create tree-like folder-structure (if ther is no 'tree')
 ```
 find . | sed -e "s/[^-][^\/]*\// |/g" -e "s/|\([^ ]\)/|-\1/"

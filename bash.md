@@ -45,6 +45,8 @@ or
 
 ### rauc it
 ```$ rauc install /run/media/usbsticky/xyz.raucb```
+```rauc install /run/media/system/FAT32/p118-debug-bundle-imx8mm-p118.raucb```
+
 
 ### reboot
 ```$ shutdown -r now```

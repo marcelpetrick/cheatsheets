@@ -105,5 +105,12 @@ $ grep -inr --include \*.qml -L "Copyright" .
 systemctl list-unit-files | grep enabled will list all enabled ones
 ```
 
-# sound mixer
+# sound mixer in ascii-format
 $ alsamixer
+
+ # problem that after booting the second display isn't used in the VM despite being recognized as "available" 
+```
+#!/bin/sh
+# init the second desktop of the VM and assign some resolution (will be adjusted anyway ..)
+xrandr --output Virtual2 --mode "1920x1440"
+```

@@ -114,3 +114,10 @@ $ alsamixer
 # init the second desktop of the VM and assign some resolution (will be adjusted anyway ..)
 xrandr --output Virtual2 --mode "1920x1440"
 ```
+
+  # edit the hostname (and displayed bluetooth name from connman)
+  ```
+  cat > /etc/hostname
+  ```
+  Note: only letters and a dash allowed, no underscore, no space! It would be written to file, but after reboot shown without them.
+  

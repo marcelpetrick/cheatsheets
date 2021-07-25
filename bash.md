@@ -115,9 +115,25 @@ $ alsamixer
 xrandr --output Virtual2 --mode "1920x1440"
 ```
 
-  # edit the hostname (and displayed bluetooth name from connman)
-  ```
-  cat > /etc/hostname
-  ```
-  Note: only letters and a dash allowed, no underscore, no space! It would be written to file, but after reboot shown without them.
+# edit the hostname (and displayed bluetooth name from connman)
+```
+cat > /etc/hostname
+```
+Note: only letters and a dash allowed, no underscore, no space! It would be written to file, but after reboot shown without them.
   
+# show used size of certain (or current) directory 
+```
+du -hs .
+```
+
+# full backup of the NAS
+* sorted after priorities:
+```
+rsync -azvrh /volume1/Photoshare_privat/ /volumeUSB1/usbshare/Photoshare_privat/ && \
+rsync -azvrh /volume1/homes/Marcel/ /volumeUSB1/usbshare/homes/Marcel/ && \
+rsync -azvrh /volume1/homes/ruzica/ /volumeUSB1/usbshare/homes/ruzica/ && \
+rsync -azvrh /volume1/homes/admin/ /volumeUSB1/usbshare/homes/admin/ && \
+rsync -azvrh /volume1/Camera/ /volumeUSB1/usbshare/Camera/ && \
+rsync -azvrh /volume1/photo/ /volumeUSB1/usbshare/photo/ && \
+rsync -azvrh /volume1/Musik/ /volumeUSB1/usbshare/Musik/
+```

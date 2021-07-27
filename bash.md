@@ -51,7 +51,7 @@ or
 ### reboot
 ```$ shutdown -r now```
 
-## binary file not executable? "No suche file or directory" - despite existing file and chmod +X ..
+## binary file not executable? "No such file or directory" - despite existing file and chmod +X ..
 ### check ELF information
 ```readelf -h binFile```
 
@@ -63,7 +63,8 @@ or
 
 ## update the system and get rid of old crap (retained packages..)
 ("dist-upgrade" instead of "upgrade" also resolves dependencies; if this is not wanted, then just use "upgrade")
-```sudo apt-get update && sudo apt-get dist-upgrade && sudo apt-get autoremove && sudo apt-get autoclean```
+```
+sudo apt-get update --fix-missing && sudo apt-get dist-upgrade && sudo apt-get autoremove && sudo apt-get autoclean```
 
 ## SSH: edit files if there is no vi, nano, ..
 'cat' first the file, then copy&paste to some editor on the host system, the pipe it into the old file via

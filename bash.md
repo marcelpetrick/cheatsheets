@@ -138,3 +138,18 @@ rsync -azvrh /volume1/Camera/ /volumeUSB1/usbshare/Camera/ && \
 rsync -azvrh /volume1/photo/ /volumeUSB1/usbshare/photo/ && \
 rsync -azvrh /volume1/Musik/ /volumeUSB1/usbshare/Musik/
 ```
+
+# Debugging on a remote system
+## prepare proper core dumps
+```
+ulimit -c unlimited
+echo 1 > /proc/sys/kernel/core_uses_pid
+echo "/tmp/core-%e-%s-%u-%g-%p-%t" > /proc/sys/kernel/core_pattern
+```
+
+## if no coredumps exist, use gdb and get a backtrace
+```
+gdb <nameToApp> 
+```
+Then "set pagination off", "run" and then if there is a signal received, then "bt"
+  

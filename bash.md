@@ -140,7 +140,9 @@ rsync -azvrh /volume1/Musik/ /volumeUSB1/usbshare/Musik/
 ```
 
 # Debugging on a remote system
+
 ## prepare proper core dumps
+
 ```
 ulimit -c unlimited
 echo 1 > /proc/sys/kernel/core_uses_pid

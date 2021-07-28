@@ -31,25 +31,36 @@ rsync -ah --progress source destination
 ```
 
 ## ssh with cleartext password (but if paste does not work..)
-```sshpass -p 'YourPassword' ssh user@host```
+```
+sshpass -p 'YourPassword' ssh user@host
+```
 
 # fresh HMI (just fab image without app): nothing works
 
 ### find the usb media (not auto mounted!)
-```$ dmesg | tail -f```
+```
+$ dmesg | tail -f
+```
 or
-```$ fdisk -l```
+```
+$ fdisk -l
+```
 
 ### mount (auto did not work as param for FAT32, so say explicitly vfat!)
-```$ mount -t vfat /dev/sda /run/media/usbsticky```
+```
+$ mount -t vfat /dev/sda /run/media/usbsticky
+```
 
 ### rauc it
-```$ rauc install /run/media/usbsticky/xyz.raucb```
-```rauc install /run/media/system/FAT32/p118-debug-bundle-imx8mm-p118.raucb```
-
+```
+$ rauc install /run/media/usbsticky/xyz.raucb
+rauc install /run/media/system/FAT32/p118-debug-bundle-imx8mm-p118.raucb
+```
 
 ### reboot
-```$ shutdown -r now```
+```
+$ shutdown -r now
+```
 
 ## binary file not executable? "No such file or directory" - despite existing file and chmod +X ..
 ### check ELF information
@@ -64,7 +75,8 @@ or
 ## update the system and get rid of old crap (retained packages..)
 ("dist-upgrade" instead of "upgrade" also resolves dependencies; if this is not wanted, then just use "upgrade")
 ```
-sudo apt-get update --fix-missing && sudo apt-get dist-upgrade && sudo apt-get autoremove && sudo apt-get autoclean```
+sudo apt-get update --fix-missing && sudo apt-get dist-upgrade && sudo apt-get autoremove && sudo apt-get autoclean
+```
 
 ## SSH: edit files if there is no vi, nano, ..
 'cat' first the file, then copy&paste to some editor on the host system, the pipe it into the old file via
@@ -74,13 +86,19 @@ sudo apt-get update --fix-missing && sudo apt-get dist-upgrade && sudo apt-get a
 "Type <Ctrl+R> at the command line and start typing the previous command. Once a result appears keep hitting <Ctrl+R> to see other matches. When the command you want appears, simply press <Enter>"
   
 ## find out current distribution version
-```lsb_release -a```
+```
+lsb_release -a
+```
 
 ## check details (like: which Kubuntu version)
-```kinfocenter```
+```
+kinfocenter
+```
 
 ## apply mp3gain recursively (89 dB)
-```find ./ -type d -exec bash -c 'cd "$1"; mp3gain -a -k -m 3 *.mp3' -- {} \;```
+```
+find ./ -type d -exec bash -c 'cd "$1"; mp3gain -a -k -m 3 *.mp3' -- {} \;
+```
 
 ## check where a symlink leads to
 ```

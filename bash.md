@@ -146,15 +146,15 @@ du -hs .
 ```
 
 # full backup of the NAS
-* sorted after priorities:
+* sorted after priorities; removed the compression because DS213 has just one core!
 ```
-rsync -azvrh /volume1/Photoshare_privat/ /volumeUSB1/usbshare/Photoshare_privat/ && \
-rsync -azvrh /volume1/homes/Marcel/ /volumeUSB1/usbshare/homes/Marcel/ && \
-rsync -azvrh /volume1/homes/ruzica/ /volumeUSB1/usbshare/homes/ruzica/ && \
-rsync -azvrh /volume1/homes/admin/ /volumeUSB1/usbshare/homes/admin/ && \
-rsync -azvrh /volume1/Camera/ /volumeUSB1/usbshare/Camera/ && \
-rsync -azvrh /volume1/photo/ /volumeUSB1/usbshare/photo/ && \
-rsync -azvrh /volume1/Musik/ /volumeUSB1/usbshare/Musik/
+rsync -avrh /volume1/Photoshare_privat/ /volumeUSB1/usbshare/Photoshare_privat/ && \
+rsync -avrh /volume1/homes/Marcel/ /volumeUSB1/usbshare/homes/Marcel/ && \
+rsync -avrh /volume1/homes/ruzica/ /volumeUSB1/usbshare/homes/ruzica/ && \
+rsync -avrh /volume1/homes/admin/ /volumeUSB1/usbshare/homes/admin/ && \
+rsync -avrh /volume1/Camera/ /volumeUSB1/usbshare/Camera/ && \
+rsync -avrh /volume1/photo/ /volumeUSB1/usbshare/photo/ && \
+rsync -avrh /volume1/Musik/ /volumeUSB1/usbshare/Musik/
 ```
 
 # Debugging on a remote system

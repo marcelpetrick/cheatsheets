@@ -172,4 +172,6 @@ echo "/tmp/core-%e-%s-%u-%g-%p-%t" > /proc/sys/kernel/core_pattern
 gdb <nameToApp> 
 ```
 Then "set pagination off", "run" and then if there is a signal received, then "bt"
-  
+
+# clear the current line from all input
+CTRL + U

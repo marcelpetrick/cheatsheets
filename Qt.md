@@ -11,3 +11,25 @@ DEFINES += GIT_SHA1=0x$$GIT_CURRENT_SHA1
 
 ### into cpp
 ```return QString("debug %1").arg(VERSION_GIT_SHA1, 6, 16, QChar('0'));;```
+
+## Reboot/power off via 'systemctl' on embedded system with non-root (DBus did not really work ..)
+```
+    static void restart()
+    {
+        ::sync();
+
+        auto const command = QStringList({ QStringLiteral("reboot") });
+        QProcess process;
+        process.start("systemctl", command);
+        if (!process.waitForFinished()) {
+            qWarning() << "Error executing" << command;
+        } else {
+            if (process.exitCode() != 0) {
+                qWarning() << "Error executing" << command << "with exitcode" << process.exitCode();
+            } else {
+                qDebug() << "successfully executed" << command;
+            }
+        }
+    }
+```
+Replace 'reboot' with 'poweroff' in case of shutdown.

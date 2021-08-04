@@ -53,3 +53,9 @@ git shortlog -sne --no-merges --since="2020-09-01" | grep Petrick
 
 ## List all files of certain type in the repo
 ```git ls-files '*.svg'```
+
+## Count the amount of commits between certain commits/tags
+```
+$ git rev-list --count v00.01.182 ^v00.00.167
+15
+```

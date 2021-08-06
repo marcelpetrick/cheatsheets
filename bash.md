@@ -113,6 +113,12 @@ Wifi SSID set
 Wifi passphrase set
 Enabled tethering for wifi
 ```
+  
+## connman shortlist
+```
+connmanctl services
+connmanctl scan wifi
+```  
 
 ## find all files of certain type which DON't contain certain string
 example: "copyright" for the license in qml-files:

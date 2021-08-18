@@ -181,3 +181,8 @@ Then "set pagination off", "run" and then if there is a signal received, then "b
 
 # clear the current line from all input
 CTRL + U
+  
+# terminate process (for crashdump)
+```
+  kill -ABRT \'pidof PROCESS\' 
+```

@@ -186,3 +186,14 @@ CTRL + U
 ```
   kill -ABRT \'pidof PROCESS\' 
 ```
+
+## backup the certificates
+```
+  marcelp@M-NB-267 MINGW64 /c/Repos/P118_HMI (mpe/textupdate)
+$ scp root@192.168.0.42:/home/p118/p118/settings/Device_key.pem Device_key.pem
+Device_key.pem                                                                                                                                            100% 3294   659.1KB/s   00:00
+
+marcelp@M-NB-267 MINGW64 /c/Repos/P118_HMI (mpe/textupdate)
+$ scp root@192.168.0.42:/home/p118/p118/settings/Device_cert.pem Device_cert.pem
+Device_cert.pem                                                                                                                                           100% 2120   616.4KB/s   00:00
+```

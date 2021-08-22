@@ -1,7 +1,7 @@
 # Cheat sheet for Windows
 
 ## Activate hibernate in case it is missing from any kind of Win10 energy-options/savings-menu
-* terminal as admin (CTRL + X)
+* terminal as admin (WIN + X)
 ```
 powercfg /hibernate on
 ```

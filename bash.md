@@ -197,3 +197,8 @@ marcelp@M-NB-267 MINGW64 /c/Repos/P118_HMI (mpe/textupdate)
 $ scp root@192.168.0.42:/home/p118/p118/settings/Device_cert.pem Device_cert.pem
 Device_cert.pem                                                                                                                                           100% 2120   616.4KB/s   00:00
 ```
+
+ the cheapest diskspace monitor (aka: looped df -h)
+```
+cmd="df -h"; for i in $(seq 1024); do $cmd; sleep 1; clear; done
+```

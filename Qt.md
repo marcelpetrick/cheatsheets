@@ -1,4 +1,15 @@
-# tricks for Qt
+# Tricks for Qt
+
+## QTest
+
+* find certain test out of a suite
+```
+./SUITENAME -functions
+```
+* execute with
+```
+./SUITENAME TESTNAME
+```
 
 ## version info as current git commit sha1
 

@@ -14,17 +14,25 @@ git shortlog -sne --no-merges --since="2020-09-01" | grep Petrick
 ```
 
 ## Create shortlog with all tickets on the current releasebranch
-    git log --pretty=oneline --abbrev-commit RC0..HEAD > releaseTickets.txt
+```
+git log --pretty=oneline --abbrev-commit RC0..HEAD > releaseTickets.txt
+```
 
 ## Amount of changes (lines and which files) in the last commit
-    git show HEAD --stat
+```
+git show HEAD --stat
+```
 
 ## Clean whitespace before pushing
-    git diff --name-only HEAD~1 HEAD | parallel --bar ../removeTrailing.sh
+```
+git diff --name-only HEAD~1 HEAD | parallel --bar ../removeTrailing.sh
+```
 
 ## Reset the state of the repo and get rid of all unversioned files (build artifacts)
-    git clean -xfd
-    git reset --hard
+```
+git clean -xfd
+git reset --hard
+```
 
 ## Push the current commit to /refs/for/master
     git push --porcelain --progress origin refs/heads/master:refs/for/master
@@ -58,4 +66,9 @@ git shortlog -sne --no-merges --since="2020-09-01" | grep Petrick
 ```
 $ git rev-list --count v00.01.182 ^v00.00.167
 15
+```
+
+## list all existing branches (just remote) with author and change date
+```
+git for-each-ref --format='%(committerdate) %09 %(authorname) %09 %(refname)' | sort -k5n -k2M -k3n -k4n | grep "/origin/"
 ```

@@ -202,4 +202,8 @@ Device_cert.pem                                                                 
 ```
 cmd="df -h"; for i in $(seq 1024); do $cmd; sleep 1; clear; done
 ```
-  
+
+## execute certain test out of a QTest-suite in loop and filter for the results
+```
+cmd="./AutomaticProgramTest test_nextInteractionUpdate"; for i in $(seq 10); do $cmd; done | grep failed
+```

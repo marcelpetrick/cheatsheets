@@ -130,28 +130,28 @@ $ grep -inr --include \*.qml -L "Copyright" .
 systemctl list-unit-files | grep enabled will list all enabled ones
 ```
 
-# sound mixer in ascii-format
+## sound mixer in ascii-format
 $ alsamixer
 
- # problem that after booting the second display isn't used in the VM despite being recognized as "available" 
+## problem that after booting the second display isn't used in the VM despite being recognized as "available" 
 ```
 #!/bin/sh
 # init the second desktop of the VM and assign some resolution (will be adjusted anyway ..)
 xrandr --output Virtual2 --mode "1920x1440"
 ```
 
-# edit the hostname (and displayed bluetooth name from connman)
+## edit the hostname (and displayed bluetooth name from connman)
 ```
 cat > /etc/hostname
 ```
 Note: only letters and a dash allowed, no underscore, no space! It would be written to file, but after reboot shown without them.
   
-# show used size of certain (or current) directory 
+## show used size of certain (or current) directory 
 ```
 du -hs .
 ```
 
-# full backup of the NAS
+## full backup of the NAS
 * sorted after priorities; removed the compression because DS213 has just one core!
 ```
 rsync -avrh /volume1/Photoshare_privat/ /volumeUSB1/usbshare/Photoshare_privat/ && \
@@ -163,9 +163,9 @@ rsync -avrh /volume1/photo/ /volumeUSB1/usbshare/photo/ && \
 rsync -avrh /volume1/Musik/ /volumeUSB1/usbshare/Musik/
 ```
 
-# Debugging on a remote system
+## Debugging on a remote system
 
-## prepare proper core dumps
+### prepare proper core dumps
 
 ```
 ulimit -c unlimited
@@ -173,16 +173,16 @@ echo 1 > /proc/sys/kernel/core_uses_pid
 echo "/tmp/core-%e-%s-%u-%g-%p-%t" > /proc/sys/kernel/core_pattern
 ```
 
-## if no coredumps exist, use gdb and get a backtrace
+### if no coredumps exist, use gdb and get a backtrace
 ```
 gdb <nameToApp> 
 ```
 Then "set pagination off", "run" and then if there is a signal received, then "bt"
 
-# clear the current line from all input
+## clear the current line from all input
 CTRL + U
   
-# terminate process (for crashdump)
+## terminate process (for crashdump)
 ```
   kill -ABRT \'pidof PROCESS\' 
 ```
@@ -198,7 +198,8 @@ $ scp root@192.168.0.42:/home/p118/p118/settings/Device_cert.pem Device_cert.pem
 Device_cert.pem                                                                                                                                           100% 2120   616.4KB/s   00:00
 ```
 
- the cheapest diskspace monitor (aka: looped df -h)
+## the cheapest diskspace monitor (aka: looped df -h)
 ```
 cmd="df -h"; for i in $(seq 1024); do $cmd; sleep 1; clear; done
 ```
+  

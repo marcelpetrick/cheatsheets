@@ -207,3 +207,9 @@ cmd="df -h"; for i in $(seq 1024); do $cmd; sleep 1; clear; done
 ```
 cmd="./AutomaticProgramTest test_nextInteractionUpdate"; for i in $(seq 10); do $cmd; done | grep failed
 ```
+
+## Run python script in parallel on each cpp/qml-file inside a dir
+```
+( find . -name "*.qml" ; find . -name "*.h" ; find . -name "*.cpp" ) | parallel --bar python3 ~/Documents/pythonCollection/fixFileNameReferenceInsideHeader/fixFileNameReferenceInsideHeader.py
+```
+  

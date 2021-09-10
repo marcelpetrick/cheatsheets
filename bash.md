@@ -212,4 +212,8 @@ cmd="./AutomaticProgramTest test_nextInteractionUpdate"; for i in $(seq 10); do 
 ```
 ( find . -name "*.qml" ; find . -name "*.h" ; find . -name "*.cpp" ) | parallel --bar python3 ~/Documents/pythonCollection/fixFileNameReferenceInsideHeader/fixFileNameReferenceInsideHeader.py
 ```
-  
+
+## Create file of certain size (here 2550 MiByte)
+```
+dd if=/dev/zero of=delme.file  bs=1M  count=2550
+```

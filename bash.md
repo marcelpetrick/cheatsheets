@@ -217,3 +217,8 @@ cmd="./AutomaticProgramTest test_nextInteractionUpdate"; for i in $(seq 10); do 
 ```
 dd if=/dev/zero of=delme.file  bs=1M  count=2550
 ```
+
+## Track currently used command (+x) and stop if something fails (+e)
+```
+set -ex
+```

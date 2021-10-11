@@ -12,6 +12,11 @@ find . | sed -e "s/[^-][^\/]*\// |/g" -e "s/|\([^ ]\)/|-\1/"
 while true; do cat /proc/loadavg; sleep 1; done
 ```
 
+### Log temperature into file and show it ..
+```
+while true; do cat /sys/class/thermal/thermal_zone0/temp | tee -a tempLogging20211011.txt; sleep 10; done
+```
+
 ## sort a file in place
 Useful for a proper listing for the mailmap for git -.-
 ```

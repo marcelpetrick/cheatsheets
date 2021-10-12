@@ -227,3 +227,8 @@ dd if=/dev/zero of=delme.file  bs=1M  count=2550
 ```
 set -ex
 ```
+
+# List all symbolic links recursively for the current dir (symlink-issue with shared libs with qmake ..)
+```
+ls -lR . | grep ^l
+```

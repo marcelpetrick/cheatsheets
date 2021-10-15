@@ -232,3 +232,8 @@ set -ex
 ```
 ls -lR . | grep ^l
 ```
+  
+# full load for four cores (xarg-version with md5sum does not work because of missing param -P)
+```
+fulload() { dd if=/dev/zero of=/dev/null | dd if=/dev/zero of=/dev/null | dd if=/dev/zero of=/dev/null | dd if=/dev/zero of=/dev/null & }; fulload; read; killall dd
+```

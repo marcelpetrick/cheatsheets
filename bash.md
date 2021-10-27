@@ -234,12 +234,17 @@ dd if=/dev/zero of=delme.file  bs=1M  count=2550
 set -ex
 ```
 
-# List all symbolic links recursively for the current dir (symlink-issue with shared libs with qmake ..)
+## List all symbolic links recursively for the current dir (symlink-issue with shared libs with qmake ..)
 ```
 ls -lR . | grep ^l
 ```
   
-# full load for four cores (xarg-version with md5sum does not work because of missing param -P)
+## full load for four cores (xarg-version with md5sum does not work because of missing param -P)
 ```
 fulload() { dd if=/dev/zero of=/dev/null | dd if=/dev/zero of=/dev/null | dd if=/dev/zero of=/dev/null | dd if=/dev/zero of=/dev/null & }; fulload; read; killall dd
+```
+
+# show lots of information about the used build  
+```
+cat /etc/build
 ```

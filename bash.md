@@ -248,3 +248,8 @@ fulload() { dd if=/dev/zero of=/dev/null | dd if=/dev/zero of=/dev/null | dd if=
 ```
 cat /etc/build
 ```
+
+# compress a set of files as tar.gz
+```
+tar -czvf logs.tar.gz *.log
+```

@@ -253,3 +253,9 @@ cat /etc/build
 ```
 tar -czvf logs.tar.gz *.log
 ```
+
+## continuous loop for testing the download speed of a certain blob
+* escaping & param with single quote for the URL!
+```
+while true; do curl -O 'https://foo.bar.com/foofoo.bar'; done
+```

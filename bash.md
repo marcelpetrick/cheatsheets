@@ -36,7 +36,7 @@ $ find / -name libSpellChecker.so 2> /dev/null
 /home/mp/Downloads/lib/qtcreator/plugins/libSpellChecker.so
 ```
 
-## copy with file-progress)
+## copy (with file-progress)
 ```
 rsync -ah --progress source destination
 ```
@@ -163,7 +163,7 @@ du -hs .
 ```
 
 ## full backup of the NAS
-* sorted after priorities; removed the compression because DS213 has just one core!
+* sorted after priorities; removed the compression (z flag) because DS213 has just one core!
 ```
 rsync -avrh /volume1/Photoshare_privat/ /volumeUSB1/usbshare/Photoshare_privat/ && \
 rsync -avrh /volume1/homes/Marcel/ /volumeUSB1/usbshare/homes/Marcel/ && \

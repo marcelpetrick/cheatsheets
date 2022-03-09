@@ -23,3 +23,6 @@ WIN + D
 
 ## Backup manually the VM to external SSD
 ```robocopy c:\Repos\kubuntu20.04 D:\vmBackups\20210423\ /MIR /MT:8```
+
+## show path to certain executable
+`where ssh`

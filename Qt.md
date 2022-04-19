@@ -44,3 +44,18 @@ DEFINES += GIT_SHA1=0x$$GIT_CURRENT_SHA1
     }
 ```
 Replace 'reboot' with 'poweroff' in case of shutdown.
+
+## Internationalization
+```
+QObject::tr() und QCoreApplication::translate() have two responsibilities
+
+    they are markers for stings that lupdate needs to extract
+    they do runtime lookup of translatons
+
+Code that is not executed during program runtime (e.g. global statics) or only once (function statics), need to have these two split:
+
+    marking via QT_TR_NOOP or QT_TRANSLATE_NOOP
+    lookup via one of the two runtime functions
+
+
+```

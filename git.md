@@ -15,7 +15,12 @@ git shortlog -sne --no-merges --since="2020-09-01" | grep Petrick
 
 ## Create shortlog with all tickets on the current releasebranch
 ```
-git log --pretty=oneline --abbrev-commit RC0..HEAD > releaseTickets.txt
+git log --pretty=oneline --abbrev-commit v1.10.1..HEAD > releaseTickets.txt
+```
+
+## list all tags
+```
+git tag -l
 ```
 
 ## Amount of changes (lines and which files) in the last commit

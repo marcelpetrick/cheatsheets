@@ -259,3 +259,12 @@ tar -czvf logs.tar.gz *.log
 ```
 while true; do curl -O 'https://foo.bar.com/foofoo.bar'; done
 ```
+  
+### touch controller update
+```
+md5sum /lib/firmware/ilitek/ili251x.bin
+3cfa957fe8bc7fc695396946b0a1f106
+
+echo 1 > /sys/devices/platform/soc@0/30800000.bus/30a30000.i2c/i2c-1/1-0041/firmware_update
+cat /sys/devices/platform/soc@0/30800000.bus/30a30000.i2c/i2c-1/1-0041/{{firmware,kernel,protocol}_version,mode} 
+```

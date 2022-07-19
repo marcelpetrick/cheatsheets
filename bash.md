@@ -270,6 +270,6 @@ cat /sys/devices/platform/soc@0/30800000.bus/30a30000.i2c/i2c-1/1-0041/{{firmwar
 ```
 
   # Fix the keyboard layout
-  * worked for Kubuntu 22.04, because I could not find any menu in that fancy KDE, which allows to changes that (wtf!)
+  * worked for Kubuntu 22.04, because I could not find any menu in that fancy KDE, which allows to changes that (wtf!)  
   `sudo dpkg-reconfigure keyboard-configuration`
   

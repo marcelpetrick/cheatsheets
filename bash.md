@@ -269,7 +269,10 @@ echo 1 > /sys/devices/platform/soc@0/30800000.bus/30a30000.i2c/i2c-1/1-0041/firm
 cat /sys/devices/platform/soc@0/30800000.bus/30a30000.i2c/i2c-1/1-0041/{{firmware,kernel,protocol}_version,mode} 
 ```
 
-  # Fix the keyboard layout
-  * worked for Kubuntu 22.04, because I could not find any menu in that fancy KDE, which allows to changes that (wtf!)  
-  `sudo dpkg-reconfigure keyboard-configuration`
+# Fix the keyboard layout
+* worked for Kubuntu 22.04, because I could not find any menu in that fancy KDE, which allows to changes that (wtf!)  
+`sudo dpkg-reconfigure keyboard-configuration`
   
+# weather-app for cheap
+`while :; do clear; curl wttr.in/Laim; date; sleep 60; done`
+ 

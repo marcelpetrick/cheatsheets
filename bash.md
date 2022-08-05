@@ -173,7 +173,17 @@ rsync -avrh /volume1/Camera/ /volumeUSB1/usbshare/Camera/ && \
 rsync -avrh /volume1/photo/ /volumeUSB1/usbshare/photo/ && \
 rsync -avrh /volume1/Musik/ /volumeUSB1/usbshare/Musik/
 ```
-
+* current version via RPi400 as remote, sudo to avoid timesetting-error  
+```
+sudo rsync -avrh admin@ds213:/volume1/Photoshare_privat/ /media/pi/1.42.6-25556/Photoshare_privat/ && \
+sudo rsync -avrh admin@ds213:/volume1/homes/Marcel/ /media/pi/1.42.6-25556/homes/Marcel/ && \
+sudo rsync -avrh admin@ds213:/volume1/homes/ruzica/ /media/pi/1.42.6-25556/homes/ruzica/ && \
+sudo rsync -avrh admin@ds213:/volume1/homes/admin/ /media/pi/1.42.6-25556/homes/admin/ && \
+sudo rsync -avrh admin@ds213:/volume1/Camera/ /media/pi/1.42.6-25556/Camera/ && \
+sudo rsync -avrh admin@ds213:/volume1/photo/ /media/pi/1.42.6-25556/photo/ && \
+sudo rsync -avrh admin@ds213:/volume1/Musik/ /media/pi/1.42.6-25556/Musik/
+```
+  
 ## Debugging on a remote system
 
 ### prepare proper core dumps
@@ -200,7 +210,7 @@ CTRL + U
 
 ## backup the certificates
 ```
-  marcelp@M-NB-267 MINGW64 /c/Repos/P118_HMI (mpe/textupdate)
+marcelp@M-NB-267 MINGW64 /c/Repos/P118_HMI (mpe/textupdate)
 $ scp root@192.168.0.42:/home/p118/p118/settings/Device_key.pem Device_key.pem
 Device_key.pem                                                                                                                                            100% 3294   659.1KB/s   00:00
 

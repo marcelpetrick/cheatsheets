@@ -173,15 +173,16 @@ rsync -avrh /volume1/Camera/ /volumeUSB1/usbshare/Camera/ && \
 rsync -avrh /volume1/photo/ /volumeUSB1/usbshare/photo/ && \
 rsync -avrh /volume1/Musik/ /volumeUSB1/usbshare/Musik/
 ```
-* current version via RPi400 as remote, sudo to avoid timesetting-error  
+## current version via RPi400 as remote, sudo to avoid timesetting-error  
+* avoid having to enter the password, stored in plaintext (cybersecurity ..) and passed via `sshpass`
 ```
-sudo rsync -avrh admin@ds213:/volume1/Photoshare_privat/ /media/pi/1.42.6-25556/Photoshare_privat/ && \
-sudo rsync -avrh admin@ds213:/volume1/homes/Marcel/ /media/pi/1.42.6-25556/homes/Marcel/ && \
-sudo rsync -avrh admin@ds213:/volume1/homes/ruzica/ /media/pi/1.42.6-25556/homes/ruzica/ && \
-sudo rsync -avrh admin@ds213:/volume1/homes/admin/ /media/pi/1.42.6-25556/homes/admin/ && \
-sudo rsync -avrh admin@ds213:/volume1/Camera/ /media/pi/1.42.6-25556/Camera/ && \
-sudo rsync -avrh admin@ds213:/volume1/photo/ /media/pi/1.42.6-25556/photo/ && \
-sudo rsync -avrh admin@ds213:/volume1/Musik/ /media/pi/1.42.6-25556/Musik/
+sshpass -p $(cat /home/pi/rsync_pw) sudo rsync -avrh admin@ds213:/volume1/Photoshare_privat/ /media/pi/1.42.6-25556/Photoshare_privat/ && \
+sshpass -p $(cat /home/pi/rsync_pw) sudo rsync -avrh admin@ds213:/volume1/homes/Marcel/ /media/pi/1.42.6-25556/homes/Marcel/ && \
+sshpass -p $(cat /home/pi/rsync_pw) sudo rsync -avrh admin@ds213:/volume1/homes/ruzica/ /media/pi/1.42.6-25556/homes/ruzica/ && \
+sshpass -p $(cat /home/pi/rsync_pw) sudo rsync -avrh admin@ds213:/volume1/homes/admin/ /media/pi/1.42.6-25556/homes/admin/ && \
+sshpass -p $(cat /home/pi/rsync_pw) sudo rsync -avrh admin@ds213:/volume1/Camera/ /media/pi/1.42.6-25556/Camera/ && \
+sshpass -p $(cat /home/pi/rsync_pw) sudo rsync -avrh admin@ds213:/volume1/photo/ /media/pi/1.42.6-25556/photo/ && \
+sshpass -p $(cat /home/pi/rsync_pw) sudo rsync -avrh admin@ds213:/volume1/Musik/ /media/pi/1.42.6-25556/Musik/
 ```
   
 ## Debugging on a remote system

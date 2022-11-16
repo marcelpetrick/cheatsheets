@@ -13,9 +13,9 @@ git shortlog -sne --no-merges --since="2020-09-01" | grep Petrick
 42  Marcel Petrick <mpetrick@___.com>
 ```
 
-## Create shortlog with all tickets on the current releasebranch
+## Create shortlog with all tickets between certain tags (early to later)
 ```
-git log --pretty=oneline --abbrev-commit v1.10.1..HEAD > releaseTickets.txt
+$ git log --pretty=oneline --abbrev-commit v1.11.2..v1.11.3
 ```
 
 ## list all tags

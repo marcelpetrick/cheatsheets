@@ -288,4 +288,7 @@ cat /sys/devices/platform/soc@0/30800000.bus/30a30000.i2c/i2c-1/1-0041/{{firmwar
 `while :; do clear; curl wttr.in/Laim; date; sleep 60; done`
 
 # Manjaro
-* full system info  inxi -Fxxxz`
+`full system info  inxi -Fxxxz`
+
+# check all ts-files for unfinished translations
+`grep -i -r --include=\*.ts "unfinished" .`

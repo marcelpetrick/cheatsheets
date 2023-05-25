@@ -56,6 +56,8 @@ Code that is not executed during program runtime (e.g. global statics) or only o
 
     marking via QT_TR_NOOP or QT_TRANSLATE_NOOP
     lookup via one of the two runtime functions
-
-
 ```
+
+### update all ts-files and remove leftover stuff
+`~/XYZ/Qt/5.15.5/gcc_64/bin/lupdate -no-obsolete ~/XYZ/03_SourceCode/hmi/hmi.pro`
+

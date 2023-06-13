@@ -292,3 +292,26 @@ cat /sys/devices/platform/soc@0/30800000.bus/30a30000.i2c/i2c-1/1-0041/{{firmwar
 
 # check all ts-files for unfinished translations
 `grep -i -r --include=\*.ts "unfinished" .`
+
+# `unpack` existing RAUC
+```
+      ~/Downloads/tamperp118  sudo unsquashfs -d extract tampered_p118-debug-bundle-imx8mm-p118-01.04.006.raucb                                     1 ✘ 
+Parallel unsquashfs: Using 12 processors
+4 inodes (9153 blocks) to write
+
+[=========================================================================================================================================\] 9157/9157 100%
+
+created 4 files
+created 1 directory
+created 0 symlinks
+created 0 devices
+created 0 fifos
+created 0 sockets
+created 0 hardlinks
+    ~/Downloads/tamperp118     
+```
+  
+  Don't use param -f with an existing directory.
+
+# change a single byte randomly at the end of the file
+`sudo dd if=/dev/urandom of=p118-debug-image-imx8mm-p118.tar bs=1 count=1 seek=$(($(stat -c%s "p118-debug-image-imx8mm-p118.tar") - 1)) conv=notrunc`

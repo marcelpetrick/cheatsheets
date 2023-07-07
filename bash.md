@@ -315,3 +315,11 @@ created 0 hardlinks
 
 # change a single byte randomly at the end of the file
 `sudo dd if=/dev/urandom of=p118-debug-image-imx8mm-p118.tar bs=1 count=1 seek=$(($(stat -c%s "p118-debug-image-imx8mm-p118.tar") - 1)) conv=notrunc`
+
+## configure ip manually for eth for accessing a special hmi
+```
+470  sudo ifconfig eno2 down\n
+471  sudo ifconfig eno2 192.168.0.41\n
+472  ifconfig
+473  ping 192.168.0.42
+```

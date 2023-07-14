@@ -323,3 +323,18 @@ created 0 hardlinks
 472  ifconfig
 473  ping 192.168.0.42
 ```
+
+## problem: `Unable to negotiate with 192.168.0.42 port 22: no matching host key type found. Their offer: ssh-rsa`
+Either add it to the ssh-command, but then other tools fails, which offer no proper interface (like rsync called as part of a deployment step) ..
+`ssh -oHostKeyAlgorithms=+ssh-rsa root@10.42.0.176` 
+or
+`sudo nano ~/.ssh/config` and then insert:
+```
+Host 192.168.0.42
+    User ps
+    PubkeyAcceptedAlgorithms +ssh-rsa
+    HostkeyAlgorithms +ssh-rsa
+```
+
+## change remotely the access-rights for a certain folder
+`ssh -oHostKeyAlgorithms=+ssh-rsa root@10.42.0.176 chown -R p118:p118 /opt/P118`

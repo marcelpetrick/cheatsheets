@@ -338,3 +338,6 @@ Host 192.168.0.42
 
 ## change remotely the access-rights for a certain folder
 `ssh -oHostKeyAlgorithms=+ssh-rsa root@10.42.0.176 chown -R p118:p118 /opt/P118`
+
+## manjaro linux - fix problem with slow mirrors
+`sudo pacman-mirrors -f 5 && sudo pacman -Syyu`

@@ -341,3 +341,13 @@ Host 192.168.0.42
 
 ## manjaro linux - fix problem with slow mirrors
 `sudo pacman-mirrors -f 5 && sudo pacman -Syyu`
+
+## number of available cpu cores - checked in different ways
+```
+echo "cpu check start ----------------------"
+nproc
+nproc --all
+cat  /proc/cpuinfo
+grep -c "^processor" /proc/cpuinfo
+echo "cpu check end ----------------------"
+```

@@ -84,9 +84,9 @@ $ shutdown -r now
 ```lsblk```
 
 ## update the system and get rid of old crap (retained packages..)
-("dist-upgrade" instead of "upgrade" also resolves dependencies; if this is not wanted, then just use "upgrade")
+("dist-upgrade" instead of "upgrade" also resolves dependencies; if this is not wanted, then just use "upgrade"; all auto-confirmed)
 ```
-sudo apt-get update --fix-missing && sudo apt-get dist-upgrade && sudo apt-get autoremove && sudo apt-get autoclean
+sudo apt-get update --fix-missing -y && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y && sudo apt-get autoclean -y
 ```
 
 ## SSH: edit files if there is no vi, nano, ..

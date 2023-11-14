@@ -351,3 +351,8 @@ cat  /proc/cpuinfo
 grep -c "^processor" /proc/cpuinfo
 echo "cpu check end ----------------------"
 ```
+
+## write image to sd-card
+* check with `lsblk` first which device could be the one you want to write to
+* takes care of writing and synching:
+`sudo dd if=data-modul-image-qt6-data-modul-imx8mp-edm-sbc-20231111193730.rootfs.wic of=/dev/mmcblk0 bs=1M status=progress conv=fsync`

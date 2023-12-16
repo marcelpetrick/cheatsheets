@@ -77,3 +77,8 @@ $ git rev-list --count v00.01.182 ^v00.00.167
 ```
 git for-each-ref --format='%(committerdate) %09 %(authorname) %09 %(refname)' | sort -k5n -k2M -k3n -k4n | grep "/origin/"
 ```
+
+## size of the repo itself (excluding files, which are maybe just compilation artifacts)
+```
+du -sh .git
+```

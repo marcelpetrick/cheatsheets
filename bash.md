@@ -356,3 +356,7 @@ echo "cpu check end ----------------------"
 * check with `lsblk` first which device could be the one you want to write to
 * takes care of writing and synching:
 `sudo dd if=data-modul-image-qt6-data-modul-imx8mp-edm-sbc-20231111193730.rootfs.wic of=/dev/mmcblk0 bs=1M status=progress conv=fsync`
+
+## compare the content of two zip-files
+`diff <(unzip -l zipfile1.zip) <(unzip -l zipfile2.zip)`
+note: if the contained files have different creation dats, this is a difference as well

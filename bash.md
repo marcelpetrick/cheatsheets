@@ -360,3 +360,27 @@ echo "cpu check end ----------------------"
 ## compare the content of two zip-files
 `diff <(unzip -l zipfile1.zip) <(unzip -l zipfile2.zip)`
 note: if the contained files have different creation dats, this is a difference as well
+
+# check if a port on a device is open/closed/filtered
+Eitehr netcat (nc), nmap or traceroute (tracepath).
+```
+    ~  netcat -vz git.data-modul.com 5050                                                                                                                                                                                           ✔ 
+git.data-modul.com [80.147.197.41] 5050 (mmcc) open
+    ~  nmap -p 5050 git.data-modul.com                                                                                                                                                                                              ✔ 
+
+Starting Nmap 7.94 ( https://nmap.org ) at 2024-01-10 11:27 CET
+Nmap scan report for git.data-modul.com (80.147.197.41)
+Host is up (0.021s latency).
+rDNS record for 80.147.197.41: p5093c529.dip0.t-ipconnect.de
+
+PORT     STATE SERVICE
+5050/tcp open  mmcc
+
+Nmap done: 1 IP address (1 host up) scanned in 0.10 seconds
+    ~  tracepath git.data-modul.com                                                                                                                                                                                                 ✔ 
+
+ 1?: [LOCALHOST]                      pmtu 1500
+ 1:  172.16.28.1                                           2.673ms 
+ 1:  172.16.28.1                                           2.628ms 
+ 2:  172.16.28.1                                           2.528ms pmtu 1400
+```

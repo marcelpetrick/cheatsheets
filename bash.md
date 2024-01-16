@@ -384,3 +384,5 @@ Nmap done: 1 IP address (1 host up) scanned in 0.10 seconds
  1:  172.16.28.1                                           2.628ms 
  2:  172.16.28.1                                           2.528ms pmtu 1400
 ```
+# zsh: more than the last 16 entries for history
+`alias history="fc -l 1"`

@@ -386,3 +386,6 @@ Nmap done: 1 IP address (1 host up) scanned in 0.10 seconds
 ```
 # zsh: more than the last 16 entries for history
 `alias history="fc -l 1"`
+
+# execute a certain QTest in a loop and just check the results
+`for i in {1..10}; do ./tst_azureiothub | grep "^Totals:"; done`

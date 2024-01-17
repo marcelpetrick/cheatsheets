@@ -388,4 +388,6 @@ Nmap done: 1 IP address (1 host up) scanned in 0.10 seconds
 `alias history="fc -l 1"`
 
 # execute a certain QTest in a loop and just check the results
-`for i in {1..10}; do ./tst_azureiothub | grep "^Totals:"; done`
+Remove the other output as well.  
+`for i in {1..10}; do ./tst_azureiothub 2>&1 | grep "^Totals:"; done`  
+For a more sophisticated shellscript which runs infinitely and breaks when an error happens, check [https://github.com/marcelpetrick/codingWithGPT/blob/master/runTestContinuously/runTestContinuously.sh](https://github.com/marcelpetrick/codingWithGPT/blob/master/runTestContinuously/runTestContinuously.sh)

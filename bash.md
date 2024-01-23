@@ -391,3 +391,7 @@ Nmap done: 1 IP address (1 host up) scanned in 0.10 seconds
 Remove the other output as well.  
 `for i in {1..10}; do ./tst_azureiothub 2>&1 | grep "^Totals:"; done`  
 For a more sophisticated shellscript which runs infinitely and breaks when an error happens, check [https://github.com/marcelpetrick/codingWithGPT/blob/master/runTestContinuously/runTestContinuously.sh](https://github.com/marcelpetrick/codingWithGPT/blob/master/runTestContinuously/runTestContinuously.sh)
+
+# color the output of stderr and stdout in different ways
+* first part is the fake-program which prints continuously, the part after `done`is the real deal
+`while true; do echo "foo"; echo "bar" >&2; sleep 1; done 2> >(sed $'s,.*,\e[31m&\e[0m,') 1> >(sed $'s,.*,\e[32m&\e[0m,')`

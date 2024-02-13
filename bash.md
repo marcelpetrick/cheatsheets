@@ -342,6 +342,10 @@ Host 192.168.0.42
 ## manjaro linux - fix problem with slow mirrors
 `sudo pacman-mirrors -f 5 && sudo pacman -Syyu`
 
+## chrome complains it is outdated and pacman does not show any missing updates
+* rebuild the packages from Microsoft (affects teams and VSCode)
+`pamac update -a`
+
 ## number of available cpu cores - checked in different ways
 ```
 echo "cpu check start ----------------------"

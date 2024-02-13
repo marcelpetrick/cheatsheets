@@ -26,8 +26,9 @@ diff lsusb_before.txt lsusb_after.txt
 ### terminal multiplexer
 `sudo screen-4.9.1 /dev/ttyACM0 115200`
 
+* or use minicom
 `sudo minicom -s`
-* exit with CTRL+A, then X
+  * exit with CTRL+A, then X
 
 * source the path
 `. ./export.sh`
@@ -59,7 +60,57 @@ fixed by renaming (instead of just deleting) the file: still not sure where this
 `` mv /home/mpetrick/.local/bin/cmake /home/mpetrick/.local/bin/cmake1  
 
 ## fix problems with `idf.py flash`
-* add user to group (for Manjaro Linux)
-`sudo usermod -a -G uucp $USER `
-* make the device writeable
-` sudo chmod a+rw /dev/ttyACM0`
+* add user to group (for Manjaro Linux) `sudo usermod -a -G uucp $USER `
+* make the device writeable `sudo chmod a+rw /dev/ttyACM0`
+
+### obviously by default the "wrong" chip is selected - ESP32 is not ESP32-C& (which I have)
+```
+"
+    ~/repos/esp/esp-idf/examples/get-started/blink    master !8  idf.py flash                                                                                                                                            ✔  26s  
+Executing action: flash
+Serial port /dev/ttyACM0
+Connecting...
+Detecting chip type... ESP32-C6
+Running ninja in directory /home/mpetrick/repos/esp/esp-idf/examples/get-started/blink/build
+Executing "ninja flash"...
+[1/5] cd /home/mpetrick/repos/esp/esp-idf/examples/get-started/blink/build/esp-idf/esptool_py && /home/mpetrick/.esp...uild/partition_table/partition-table.bin /home/mpetrick/repos/esp/esp-idf/examples/get-started/blink/build/blink.bin
+blink.bin binary size 0x2d430 bytes. Smallest app partition is 0x100000 bytes. 0xd2bd0 bytes (82%) free.
+[1/1] cd /home/mpetrick/repos/esp/esp-idf/examples/get-started/blink/build/bootloader/esp-idf/esptool_py && /home/mp...0x8000 bootloader 0x1000 /home/mpetrick/repos/esp/esp-idf/examples/get-started/blink/build/bootloader/bootloader.bin
+Bootloader binary size 0x6870 bytes. 0x790 bytes (7%) free.
+[4/5] cd /home/mpetrick/repos/esp/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH=/home/mpetrick/repos/e...idf/examples/get-started/blink/build -P /home/mpetrick/repos/esp/esp-idf/components/esptool_py/run_serial_tool.cmake
+esptool.py --chip esp32 -p /dev/ttyACM0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 2MB 0x1000 bootloader/bootloader.bin 0x10000 blink.bin 0x8000 partition_table/partition-table.bin
+esptool.py vv4.8.dev1
+Serial port /dev/ttyACM0
+Connecting...
+
+A fatal error occurred: This chip is ESP32-C6 not ESP32. Wrong --chip argument?
+CMake Error at run_serial_tool.cmake:66 (message):
+  
+  /home/mpetrick/.espressif/python_env/idf5.3_py3.11_env/bin/python;;/home/mpetrick/repos/esp/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32
+  failed.
+
+
+
+FAILED: CMakeFiles/flash /home/mpetrick/repos/esp/esp-idf/examples/get-started/blink/build/CMakeFiles/flash 
+cd /home/mpetrick/repos/esp/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH=/home/mpetrick/repos/esp/esp-idf -D "SERIAL_TOOL=/home/mpetrick/.espressif/python_env/idf5.3_py3.11_env/bin/python;;/home/mpetrick/repos/esp/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/mpetrick/repos/esp/esp-idf/examples/get-started/blink/build -P /home/mpetrick/repos/esp/esp-idf/components/esptool_py/run_serial_tool.cmake
+ninja: build stopped: subcommand failed.
+ninja failed with exit code 1, output of the command is in the /home/mpetrick/repos/esp/esp-idf/examples/get-started/blink/build/log/idf_py_stderr_output_32056 and /home/mpetrick/repos/esp/esp-idf/examples/get-started/blink/build/log/idf_py_stdout_output_32056
+    ~/repos/esp/esp-idf/examples/get-started/blink    master !8  history                                                                                                                                                       2 ✘ 
+ 1394  ls -lah
+ 1395  cd get-started
+ 1398  cd blink
+ 1399  ls
+ 1400  idf.py menuconfig
+ 1403  sudo usermod -a -G dialout $USER
+ 1404  sudo idf.py flash
+ 1405  sudo usermod -a -G uucp $USER
+ 1407  sudo usermod -a -G uucp $USER\n
+ 1408  getent uucp
+ 1409  sudo getent uucp
+ 1410  getent group uucp\n
+ 1411  sudo chmod a+rw /dev/ttyACM0
+ 1413  idf.py set-target esp32c6\n
+ 1414  idf.py build
+ 1415  idf.py flash
+    ~/repos/esp/esp-idf/examples/get-started/blink    master !8 
+```

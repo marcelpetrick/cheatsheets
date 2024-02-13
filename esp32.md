@@ -55,5 +55,11 @@ Traceback (most recent call last):
 ModuleNotFoundError: No module named 'cmake'
     ~/repos/esp/esp-idf    master !8    
 ```
+fixed by renaming (instead of just deleting) the file: still not sure where this comes from
+`` mv /home/mpetrick/.local/bin/cmake /home/mpetrick/.local/bin/cmake1  
 
-
+## fix problems with `idf.py flash`
+* add user to group (for Manjaro Linux)
+`sudo usermod -a -G uucp $USER `
+* make the device writeable
+` sudo chmod a+rw /dev/ttyACM0`

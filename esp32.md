@@ -114,3 +114,12 @@ ninja failed with exit code 1, output of the command is in the /home/mpetrick/re
  1415  idf.py flash
     ~/repos/esp/esp-idf/examples/get-started/blink    master !8 
 ```
+
+## tried approaches
+* running `idf.py menuconfig`did not help
+* running `idf.py set-target esp32c6`did not help: ` riscv32-esp-elf-gcc is not a full path and was not found in the PATH.`
+* removed the `build`dir manually
+* so it complains about flashing for ESP32 not ESP32-C6 (and I have a C6)
+
+* **solution**: build the toolchain also for the proper target! `./install.sh esp32c6`
+

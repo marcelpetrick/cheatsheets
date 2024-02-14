@@ -399,3 +399,22 @@ For a more sophisticated shellscript which runs infinitely and breaks when an er
 # color the output of stderr and stdout in different ways
 * first part is the fake-program which prints continuously, the part after `done`is the real deal
 `while true; do echo "foo"; echo "bar" >&2; sleep 1; done 2> >(sed $'s,.*,\e[31m&\e[0m,') 1> >(sed $'s,.*,\e[32m&\e[0m,')`
+
+## handle all snap updates
+* `sudo snap refresh`
+* `snap list` to see what is installed
+* `snap warnings` for .. reviewing given warnings
+
+## Manjaro Linux system update
+* `sudo pacman -Syyu`
+* check the results afterwards
+```
+    ~  lsb_release -a && uname -a                                                                                                                                                                                                   ✔ 
+LSB Version:    n/a
+Distributor ID: ManjaroLinux
+Description:    Manjaro Linux
+Release:        23.1.3
+Codename:       Vulcan
+Linux marcel-precision3551 6.7.0-0-MANJARO #1 SMP PREEMPT_DYNAMIC Mon Jan  8 02:04:09 UTC 2024 x86_64 GNU/Linux
+    ~        
+```

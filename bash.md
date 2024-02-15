@@ -418,3 +418,6 @@ Codename:       Vulcan
 Linux marcel-precision3551 6.7.0-0-MANJARO #1 SMP PREEMPT_DYNAMIC Mon Jan  8 02:04:09 UTC 2024 x86_64 GNU/Linux
     ~        
 ```
+
+## convert all webp files to png
+* `for img in *.webp; do dwebp "$img" -o "${img%.webp}.png"; done` - install webp before: `libwebp`is the manjaro package

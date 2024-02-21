@@ -420,4 +420,7 @@ Linux marcel-precision3551 6.7.0-0-MANJARO #1 SMP PREEMPT_DYNAMIC Mon Jan  8 02:
 ```
 
 ## convert all webp files to png
-* `for img in *.webp; do dwebp "$img" -o "${img%.webp}.png"; done` - install webp before: `libwebp`is the manjaro package
+`for img in *.webp; do dwebp "$img" -o "${img%.webp}.png"; done` - install webp before: `libwebp`is the manjaro package
+
+## kill a processes without any copy-paste of the PIDs
+`ps -e | grep '[w]ine' | awk '{print $1}' | xargs kill  `

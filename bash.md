@@ -424,3 +424,18 @@ Linux marcel-precision3551 6.7.0-0-MANJARO #1 SMP PREEMPT_DYNAMIC Mon Jan  8 02:
 
 ## kill a processes without any copy-paste of the PIDs
 `ps -e | grep '[w]ine' | awk '{print $1}' | xargs kill  `
+
+ ## manjaro - pacman - list all explicitely installed packages
+ * Q for list; e for explicitely; d for dependencies
+ ```
+pacman -Qe | grep -i "qt"                                                                                                                                                                                                    ✔ 
+
+packagekit-qt5 1.1.1-1
+phonon-qt5-gstreamer 4.10.0-4
+python-pyqt5 5.15.10-1
+qt5-imageformats 5.15.12+kde+r10-1
+qt5-virtualkeyboard 5.15.12-1
+qt6-location 6.6.1-1
+qt6-virtualkeyboard 6.6.1-1
+qtcreator 12.0.1-2
+```

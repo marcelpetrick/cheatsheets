@@ -439,3 +439,6 @@ qt6-location 6.6.1-1
 qt6-virtualkeyboard 6.6.1-1
 qtcreator 12.0.1-2
 ```
+
+## manjaro - update all flatpak packages
+`sudo flatpak update`

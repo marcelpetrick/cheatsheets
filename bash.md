@@ -444,4 +444,4 @@ qtcreator 12.0.1-2
 `sudo flatpak update`
 
 ## manjaro linux: one full update for all package-managers please
- `sudo pacman -Syyu && sudo flatpak update && sudo snap refresh`
+ ` sudo pacman -Syyu && echo "----------" && sudo flatpak update && echo "----------" && sudo snap refresh`

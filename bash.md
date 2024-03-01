@@ -445,3 +445,7 @@ qtcreator 12.0.1-2
 
 ## manjaro linux: one full update for all package-managers please
  ` sudo pacman -Syyu && echo "----------" && sudo flatpak update && echo "----------" && sudo snap refresh`
+
+# check the integrity of lzo-images (embedded linux)
+* first install `sudo pacman -Syu lzop`
+* then run `sudo lzop -t foo-bar-00.00.194.wic.lzo`

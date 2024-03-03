@@ -205,9 +205,7 @@ Then "set pagination off", "run" and then if there is a signal received, then "b
 CTRL + U
   
 ## terminate process (for crashdump)
-```
-  kill -ABRT \'pidof PROCESS\' 
-```
+`kill -ABRT \'pidof PROCESS\'`
 
 ## backup the certificates
 ```
@@ -428,7 +426,7 @@ Linux marcel-precision3551 6.7.0-0-MANJARO #1 SMP PREEMPT_DYNAMIC Mon Jan  8 02:
  ## manjaro - pacman - list all explicitely installed packages
  * Q for list; e for explicitely; d for dependencies
  ```
-pacman -Qe | grep -i "qt"                                                                                                                                                                                                    ✔ 
+pacman -Qe | grep -i "qt"
 
 packagekit-qt5 1.1.1-1
 phonon-qt5-gstreamer 4.10.0-4
@@ -444,7 +442,7 @@ qtcreator 12.0.1-2
 `sudo flatpak update`
 
 ## manjaro linux: one full update for all package-managers please
- ` sudo pacman -Syyu && echo "----------" && sudo flatpak update && echo "----------" && sudo snap refresh`
+`sudo pacman -Syyu && echo "----------" && sudo flatpak update && echo "----------" && sudo snap refresh`
 
 # check the integrity of lzo-images (embedded linux)
 * first install `sudo pacman -Syu lzop`

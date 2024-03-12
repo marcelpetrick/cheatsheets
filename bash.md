@@ -447,3 +447,12 @@ qtcreator 12.0.1-2
 # check the integrity of lzo-images (embedded linux)
 * first install `sudo pacman -Syu lzop`
 * then run `sudo lzop -t foo-bar-00.00.194.wic.lzo`
+
+# clone RPi image (sd card)
+ ```
+ 498  mkdir rpi4clone
+ 499  cd rpi4clone
+ 500  dd if=/dev/mmcblk0 of=rpi4_epd.img bs=1 status=progress
+ 502  sudo dd if=/dev/mmcblk0 of=rpi4_epd.img bs=10M status=progress
+ 508  sudo dd if=rpi4_epd.img of=/dev/mmcblk0 bs=10M status=progress
+ ```

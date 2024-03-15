@@ -456,3 +456,8 @@ qtcreator 12.0.1-2
  502  sudo dd if=/dev/mmcblk0 of=rpi4_epd.img bs=10M status=progress
  508  sudo dd if=rpi4_epd.img of=/dev/mmcblk0 bs=10M status=progress
  ```
+
+# journalctl - filter output by program
+* for everything in full detail: `journalctl -o verbose`
+* filtered: `journalctl _COMM=P118`
+* filtered: `journalctl SYSLOG_IDENTIFIER=P118`

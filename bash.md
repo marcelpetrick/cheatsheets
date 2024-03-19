@@ -461,3 +461,6 @@ qtcreator 12.0.1-2
 * for everything in full detail: `journalctl -o verbose`
 * filtered: `journalctl _COMM=P118`
 * filtered: `journalctl SYSLOG_IDENTIFIER=P118`
+
+# Determine the SLOC for all *.py-files in the current directory (no subdirs!)
+`find . -maxdepth 1 -name '*.py' -exec wc -l {} + | awk '{s+=$1} END {print s}'`

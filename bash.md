@@ -464,3 +464,6 @@ qtcreator 12.0.1-2
 
 # Determine the SLOC for all *.py-files in the current directory (no subdirs!)
 `find . -maxdepth 1 -name '*.py' -exec wc -l {} + | awk '{s+=$1} END {print s}'`
+
+# purge history
+* see: https://blog.ostermiller.org/removing-and-purging-files-from-git-history/

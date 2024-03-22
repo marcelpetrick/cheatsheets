@@ -82,3 +82,10 @@ git for-each-ref --format='%(committerdate) %09 %(authorname) %09 %(refname)' | 
 ```
 du -sh .git
 ```
+
+## LFS (large file system): fix the mini-file-sizes
+```bash
+cd <repository-directory>
+git lfs install
+git lfs pull
+```

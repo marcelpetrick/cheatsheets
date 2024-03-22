@@ -465,5 +465,11 @@ qtcreator 12.0.1-2
 # Determine the SLOC for all *.py-files in the current directory (no subdirs!)
 `find . -maxdepth 1 -name '*.py' -exec wc -l {} + | awk '{s+=$1} END {print s}'`
 
-# purge history
+# purge git history
 * see: https://blog.ostermiller.org/removing-and-purging-files-from-git-history/
+
+# DALL-E output: fix file names, bundle all to a single pdf
+```
+ls *.png | cat -n | while read n f; do mv -n "$f" "$(printf "%02d.png" $n)"; done
+convert *.png combined.pdf
+```

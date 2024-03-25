@@ -1,4 +1,7 @@
-# activate venv
+# git clean before 
+` git reset --hard && git clean -xfd`
+
+# prepare and activate venv
 ```
 python3 -m venv .venv
 source .venv/bin/activate

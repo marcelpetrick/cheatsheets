@@ -142,7 +142,7 @@ systemctl list-unit-files | grep enabled will list all enabled ones
 ```
 
 ## sound mixer in ascii-format
-$ alsamixer
+`alsamixer`
 
 ## problem that after booting the second display isn't used in the VM despite being recognized as "available" 
 ```
@@ -442,7 +442,8 @@ qtcreator 12.0.1-2
 `sudo flatpak update`
 
 ## manjaro linux: one full update for all package-managers please
-`sudo pacman -Syyu && echo "----------" && sudo flatpak update && echo "----------" && sudo snap refresh && echo "----------" && pamac update -a`
+* first regular pacman, then flatpack and snaps, then the self-built stuff (like VS Code and Chrome)
+`sudo pacman -Syyu && echo "----------" && sudo flatpak update && echo "----------" && sudo snap refresh && echo "----------" && sudo pamac update -a`
 
 # check the integrity of lzo-images (embedded linux)
 * first install `sudo pacman -Syu lzop`

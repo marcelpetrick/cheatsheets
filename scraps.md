@@ -16,3 +16,11 @@ reboot
 ```
 * people report that kernel 6.8 makes problem with snaps due to changes to the mountpoint
   * switching back to 6.6 LTS (20240419)
+
+
+# virtual box
+```
+VirtualBox is not currently allowed to access USB devices. You can change this by adding your user to the 'vboxusers' group. Please see the user manual for a more detailed explanation.
+```
+
+* solution: `sudo usermod -aG vboxusers $(whoami)`

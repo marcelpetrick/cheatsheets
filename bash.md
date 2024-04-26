@@ -442,8 +442,11 @@ qtcreator 12.0.1-2
 `sudo flatpak update`
 
 ## manjaro linux: one full update for all package-managers please
-* first regular pacman, then flatpack and snaps, then the self-built stuff (like VS Code and Chrome)
-`sudo pacman -Syyu && echo "----------" && sudo flatpak update && echo "----------" && sudo snap refresh && echo "----------" && sudo pamac update -a`
+* first regular pacman, then the self-built stuff (like VS Code and Chrome), then snap, then flatpak:  
+`sudo pacman -Syyu && echo "----------" && sudo pamac update -a && echo "----------" && sudo snap refresh && echo "----------" && sudo flatpak update`
+
+### timed version
+* `time (sudo pacman -Syyu && echo "----------" && sudo pamac update -a && echo "----------" && sudo snap refresh && echo "----------" && sudo flatpak update)`
 
 # check the integrity of lzo-images (embedded linux)
 * first install `sudo pacman -Syu lzop`

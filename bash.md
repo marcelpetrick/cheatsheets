@@ -477,3 +477,12 @@ qtcreator 12.0.1-2
 ls *.png | cat -n | while read n f; do mv -n "$f" "$(printf "%02d.png" $n)"; done
 convert *.png combined.pdf
 ```
+
+# fix name-resolution-issue on embedded device (yocto linux)
+```bash
+echo "nameserver 8.8.8.8" > /etc/resolv.conf
+echo "nameserver 8.8.4.4" >> /etc/resolv.conf
+```
+
+Do a test afterwards with: `wget marcelpetrick.it` which should download the source of the nimble page
+

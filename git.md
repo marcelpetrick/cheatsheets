@@ -89,3 +89,9 @@ cd <repository-directory>
 git lfs install
 git lfs pull
 ```
+
+## push without changes
+```bash
+git commit --amend --no-edit
+git push --force
+```

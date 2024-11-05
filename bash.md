@@ -486,3 +486,7 @@ echo "nameserver 8.8.4.4" >> /etc/resolv.conf
 
 Do a test afterwards with: `wget marcelpetrick.it` which should download the source of the nimble page
 
+## invoke a script and see the output like before, but capture all output into a file
+```bash
+./create_artifacts.sh v1.33.7 2>&1 | tee script_output.log
+```

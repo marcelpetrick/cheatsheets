@@ -490,3 +490,6 @@ Do a test afterwards with: `wget marcelpetrick.it` which should download the sou
 ```bash
 ./create_artifacts.sh v1.33.7 2>&1 | tee script_output.log
 ```
+
+## system overview of all components
+`inxi -Fxz`

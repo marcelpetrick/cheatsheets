@@ -95,3 +95,8 @@ git lfs pull
 git commit --amend --no-edit
 git push --force
 ```
+
+## Prevent that additional changes to a file are appearing in the change list (and then get committed)
+```bash
+git update-index --assume-unchanged config.ini
+```

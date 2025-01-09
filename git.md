@@ -100,3 +100,7 @@ git push --force
 ```bash
 git update-index --assume-unchanged config.ini
 ```
+## Determine where the current branch branched from `development` and then create a patchfile (from head to that point) - output to stdout
+```bash
+git diff "$(git merge-base $(git rev-parse --abbrev-ref HEAD) development)" HEAD   
+```

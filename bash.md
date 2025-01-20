@@ -493,3 +493,12 @@ Do a test afterwards with: `wget marcelpetrick.it` which should download the sou
 
 ## system overview of all components
 `inxi -Fxz`
+
+## takes all JPGs in reverse natural order, rotates them 90° counterclockwise, downscales them to 50% size, applies 95% JPEG compression, and combines them into a single PDF
+```bash
+convert $(ls -v *.jpg | tac) \
+  -rotate -90 \
+  -resize 50% \
+  -quality 95 \
+  output.pdf
+```

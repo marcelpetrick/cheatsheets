@@ -502,3 +502,27 @@ convert $(ls -v *.jpg | tac) \
   -quality 95 \
   output.pdf
 ```
+
+## Performance measurement (profiling)
+* also consider `perf record` and `perf report`.
+```bash
+perf stat ./NordseeMemoLinuxBuild.x86_64
+
+[..]
+
+Performance counter stats for './NordseeMemoLinuxBuild.x86_64':
+
+          9,650.74 msec task-clock:u                     #    0.235 CPUs utilized             
+                 0      context-switches:u               #    0.000 /sec                      
+                 0      cpu-migrations:u                 #    0.000 /sec                      
+            32,336      page-faults:u                    #    3.351 K/sec                     
+    17,857,249,042      cycles:u                         #    1.850 GHz                       
+    13,513,666,067      instructions:u                   #    0.76  insn per cycle            
+     2,306,167,305      branches:u                       #  238.963 M/sec                     
+        78,212,492      branch-misses:u                  #    3.39% of all branches           
+
+      41.123831184 seconds time elapsed
+
+       6.836516000 seconds user
+       2.689124000 seconds sys
+```

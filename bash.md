@@ -526,3 +526,8 @@ Performance counter stats for './NordseeMemoLinuxBuild.x86_64':
        6.836516000 seconds user
        2.689124000 seconds sys
 ```
+
+## script that continuously fills a directory with sequentially named 1 GiB files until the disk is full:
+```bash
+mkdir -p fill_disk && i=1; while dd if=/dev/urandom of="fill_disk/file_$(printf "%05d" $i).bin" bs=1M count=1024 status=none; do ((i++)); done
+```

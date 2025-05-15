@@ -531,3 +531,8 @@ Performance counter stats for './NordseeMemoLinuxBuild.x86_64':
 ```bash
 mkdir -p fill_disk && i=1; while dd if=/dev/urandom of="fill_disk/file_$(printf "%05d" $i).bin" bs=1M count=1024 status=none; do ((i++)); done
 ```
+
+## manjaor linux: switch to another kernel-version
+```sh
+sudo mhwd-kernel -i linux614
+```

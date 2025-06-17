@@ -532,7 +532,18 @@ Performance counter stats for './NordseeMemoLinuxBuild.x86_64':
 mkdir -p fill_disk && i=1; while dd if=/dev/urandom of="fill_disk/file_$(printf "%05d" $i).bin" bs=1M count=1024 status=none; do ((i++)); done
 ```
 
-## manjaor linux: switch to another kernel-version
+## Manjaro linux: switch to another kernel-version
 ```sh
 sudo mhwd-kernel -i linux614
 ```
+
+## convert given image to one with max side length 1024 px and pad the smaller dimension white
+```bash
+convert foo.png -resize 1024x1024 -gravity center -background white -extent 1024x1024 out.png
+```
+
+## convert given images to a PDF with certain dimensions
+```bash
+convert pic1.png pic2.png pic3.png -page 1024x1024 result.pdf
+```
+

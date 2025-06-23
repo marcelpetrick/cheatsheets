@@ -547,3 +547,7 @@ convert foo.png -resize 1024x1024 -gravity center -background white -extent 1024
 convert pic1.png pic2.png pic3.png -page 1024x1024 result.pdf
 ```
 
+## convert all HEIC files to JPG in the current folder
+```bash
+for file in *.HEIC; do convert "$file" -quality 100 "${file}.jpg"; done
+```

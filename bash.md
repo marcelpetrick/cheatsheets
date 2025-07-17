@@ -551,3 +551,8 @@ convert pic1.png pic2.png pic3.png -page 1024x1024 result.pdf
 ```bash
 for file in *.HEIC; do convert "$file" -quality 100 "${file}.jpg"; done
 ```
+
+## get all commits bwetween a certain tag and the head, prefixed with a bullet point
+```bash
+git log v01.07.018..HEAD --pretty=format:"* %s"
+```

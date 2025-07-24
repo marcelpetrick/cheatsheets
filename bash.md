@@ -556,3 +556,8 @@ for file in *.HEIC; do convert "$file" -quality 100 "${file}.jpg"; done
 ```bash
 git log v01.07.018..HEAD --pretty=format:"* %s"
 ```
+
+### prepare content of a dir for LLM consumption (in a file: first file listing, then preamble separated file contents)
+```bash
+(ls -lah; for f in *; do [ -f "$f" ] && [ "$f" != "llm_compat_output.md" ] && echo "-------------------- $f --------------------" && cat "$f" && echo "---------- end ----------"; done) > llm_compat_output.md
+```

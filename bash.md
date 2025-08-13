@@ -561,3 +561,14 @@ git log v01.07.018..HEAD --pretty=format:"* %s"
 ```bash
 (ls -lah; for f in *; do [ -f "$f" ] && [ "$f" != "llm_compat_output.md" ] && echo "-------------------- $f --------------------" && cat "$f" && echo "---------- end ----------"; done) > llm_compat_output.md
 ```
+
+## wipe a drive
+* create the filler
+```bash
+dd if=/dev/urandom of=filler.bin bs=1M count=1024 status=progress
+```
+
+* multiply the filler
+```bash
+[ -f filler.bin ] || { echo "filler.bin not found. Exiting."; exit 1; }; while true; do cp filler.bin "filler_$(date +%Y-%m-%d_%H-%M-%S).bin"; sleep 1; done
+```

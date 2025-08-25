@@ -58,6 +58,69 @@ Code that is not executed during program runtime (e.g. global statics) or only o
     lookup via one of the two runtime functions
 ```
 
-### update all ts-files and remove leftover stuff
+## update all ts-files and remove leftover stuff
 `~/XYZ/Qt/5.15.5/gcc_64/bin/lupdate -no-obsolete ~/XYZ/03_SourceCode/hmi/hmi.pro`
 
+## FPS-counter for QML
+
+```qml
+import QtQuick 2.15
+
+Item {
+    id: root
+    property double fps: 0
+    property int frames: 0
+    property double lastUpdateMS: Date.now()
+    property real tick: 0            // dummy animating value
+
+    // Drive a per-frame tick
+    NumberAnimation on tick {
+        id: ticker
+        from: 0
+        to: 1
+        duration: 1000000            // long, slow sweep; we only care about per-frame changes
+        running: true
+        loops: Animation.Infinite
+    }
+
+    onTickChanged: {
+        frames++
+        const now = Date.now()
+        const dt = now - lastUpdateMS
+        if (dt >= 500) {
+            fps = frames * 1000.0 / dt
+            frames = 0
+            lastUpdateMS = now
+        }
+    }
+
+    // overlay UI (top-left, always on top)
+    Rectangle {
+        anchors.left: parent.left
+        anchors.top: parent.top
+        anchors.margins: 8
+        radius: 6
+        color: "#66000000"
+        border.color: "#22FFFFFF"
+        z: 9999
+        Text {
+            anchors.fill: parent
+            anchors.margins: 6
+            text: root.fps.toFixed(1) + " FPS"
+            color: "black"
+            font.bold: true
+        }
+    }
+}
+```
+
+Use (to draw on top of everything):
+
+```qml
+    FpsOverlay {
+        id: fps
+        x: 0
+        y: 0
+        z: 9999    // large value ensures it's above other content
+    }
+```

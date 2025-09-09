@@ -572,3 +572,8 @@ dd if=/dev/urandom of=filler.bin bs=1M count=1024 status=progress
 ```bash
 [ -f filler.bin ] || { echo "filler.bin not found. Exiting."; exit 1; }; while true; do cp filler.bin "filler_$(date +%Y-%m-%d_%H-%M-%S).bin"; sleep 1; done
 ```
+
+## invoke clang-format for the whole repo
+```bash
+find . -iname '*.h' -o -iname '*.cpp' -o -iname '*.cc' | xargs clang-format -i
+```

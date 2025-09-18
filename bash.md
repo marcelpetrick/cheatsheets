@@ -572,6 +572,7 @@ find . -type f \
     ! -name "Doxyfile" \
     ! -name ".clang-format" \
     ! -name "llm_compat_output.md" \
+    ! -name "CMakeLists.txt.user" \
 | while read -r f; do
     echo "-------------------- $f --------------------"
     cat "$f"

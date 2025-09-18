@@ -562,17 +562,22 @@ git log v01.07.018..HEAD --pretty=format:"* %s"
 (ls -lah; for f in *; do [ -f "$f" ] && [ "$f" != "llm_compat_output.md" ] && echo "-------------------- $f --------------------" && cat "$f" && echo "---------- end ----------"; done) > llm_compat_output.md
 ```
 
-### better - with improved exclusion for some folders, which have binaries or other crap which shall not be passed
+### better - with improved exclusion for some folders, which have binaries or other crap (git, venv, images) which shall not be passed
 ```bash
 (ls -lah;
 find . -type f \
     ! -path "./build/*" \
     ! -path "./assets/*" \
     ! -path "./.git/*" \
+    ! -path "./.venv/*" \
     ! -name "Doxyfile" \
     ! -name ".clang-format" \
     ! -name "llm_compat_output.md" \
     ! -name "CMakeLists.txt.user" \
+    ! -iname "*.png" \
+    ! -iname "*.jpg" \
+    ! -iname "*.jpeg" \
+    ! -iname "*.svg" \
 | while read -r f; do
     echo "-------------------- $f --------------------"
     cat "$f"

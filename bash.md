@@ -601,7 +601,7 @@ dd if=/dev/urandom of=filler.bin bs=1M count=1024 status=progress
 find . -iname '*.h' -o -iname '*.cpp' -o -iname '*.cc' | xargs clang-format -i
 ```
 
-### fix the missing virtualbox kernel module (VM does not start)
+## fix the missing virtualbox kernel module (VM does not start)
 ```bash
  uname -a && lsb_release -a      
 sudo pacman -Qi linux612 linux612-headers\n
@@ -610,3 +610,10 @@ sudo pacman -S virtualbox\n
 sudo modprobe vboxdrv\nsudo modprobe vboxnetflt\nsudo modprobe vboxnetadp\nsudo modprobe vboxpci\n
 ```
 Last one fails most likely, but then the VM-iamge is startable - without even rebooting.
+
+## codespell: one run to auto-fix issues
+
+```bash
+codespell -i 3 -w --interactive 0 \
+  --skip=".git,__pycache__,*.pyc,*.pyo,*.so,*.png,*.jpg,*.jpeg,*.gif,*.svg,*.pdf,*.zip,*.whl,*.egg-info,dist,build"
+``

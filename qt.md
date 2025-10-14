@@ -124,3 +124,17 @@ Use (to draw on top of everything):
         z: 9999    // large value ensures it's above other content
     }
 ```
+
+## Qt5: no official package for Manjaor Linux: Qt5-Datavisualisation
+* the first commands fail, therefore clone&build
+```
+sudo pacman -S qt5-datavis3d
+sudo pacman -S qt5-datavisualization
+sudo pacman -S qt5-datavis
+
+echo "this works"
+sudo pacman -S --needed base-devel git\n
+cd ~ /repos
+git clone https://aur.archlinux.org/qt5-datavis3d.git\ncd qt5-datavis3d\n
+makepkg -si
+```

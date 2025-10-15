@@ -138,3 +138,16 @@ cd ~ /repos
 git clone https://aur.archlinux.org/qt5-datavis3d.git\ncd qt5-datavis3d\n
 makepkg -si
 ```
+
+### Qt 5 to 6 porting: find all imports which still use a version
+```
+grep -rE --include='*.qml' '^[[:space:]]*import[[:space:]]+[[:alnum:].]+[[:space:]]+[0-9]+(\.[0-9]+)?' .
+
+./qml/DebugView.qml:import com.org 1.0
+./qml/SystemPerformanceView.qml:import com.org 1.0
+./qml/DisplayInfoView.qml:import com.org 1.0
+./qml/CpuPerformanceGraphView.qml:import com.org 1.0
+./qml/AppExecView.qml:import com.org 1.0
+./qml/SystemInfoView.qml:import com.org 1.0
+./qml/AppsView.qml:import com.org 1.0
+```

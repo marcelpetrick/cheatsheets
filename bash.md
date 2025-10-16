@@ -616,4 +616,14 @@ Last one fails most likely, but then the VM-iamge is startable - without even re
 ```bash
 codespell -i 3 -w --interactive 0 \
   --skip=".git,__pycache__,*.pyc,*.pyo,*.so,*.png,*.jpg,*.jpeg,*.gif,*.svg,*.pdf,*.zip,*.whl,*.egg-info,dist,build"
-``
+```
+
+## Copy with excluding some directories which contain Windows garbage
+
+```bash
+sudo rsync -aAXvh --progress \
+  --exclude='$RECYCLE.BIN' \
+  --exclude='System Volume Information' \
+  /mnt/samsung/ \
+  /run/media/mpetrick/VM_backups/
+```

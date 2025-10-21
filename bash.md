@@ -612,18 +612,29 @@ sudo modprobe vboxdrv\nsudo modprobe vboxnetflt\nsudo modprobe vboxnetadp\nsudo 
 Last one fails most likely, but then the VM-iamge is startable - without even rebooting.
 
 ## codespell: one run to auto-fix issues
-
 ```bash
 codespell -i 3 -w --interactive 0 \
   --skip=".git,__pycache__,*.pyc,*.pyo,*.so,*.png,*.jpg,*.jpeg,*.gif,*.svg,*.pdf,*.zip,*.whl,*.egg-info,dist,build"
 ```
 
 ## Copy with excluding some directories which contain Windows garbage
-
 ```bash
 sudo rsync -aAXvh --progress \
   --exclude='$RECYCLE.BIN' \
   --exclude='System Volume Information' \
   /mnt/samsung/ \
   /run/media/mpetrick/VM_backups/
+```
+
+## Check for new devices (attached via switch; do arp-scan before and after and diff the files)
+```bash
+sudo arp-scan --interface=enp0s13f0u1u4 192.168.0.0/16
+```
+
+## configure wifi hotspot at Raspberry Pi (RaspyOS)
+```bash
+Create hotspot:	sudo nmcli dev wifi hotspot ifname wlan0 ssid hallowelt password "lalalala"  
+Share internet:	sudo nmcli connection modify Hotspot ipv4.method shared  
+Auto-start at boot:	sudo nmcli connection modify Hotspot connection.autoconnect yes  
+Stop hotspot:	sudo nmcli connection down Hotspot
 ```

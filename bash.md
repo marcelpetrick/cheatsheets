@@ -585,6 +585,33 @@ find . -type f \
 done) > llm_compat_output.md
 ```
 
+When there are several huge files, the figure out what causes this (based on the previous exclusion):
+
+```bash
+ find . -type f \                                                                                                                                                                                                                        ✔ 
+    ! -path "./build/*" \
+    ! -path "./assets/*" \
+    ! -path "./.git/*" \
+    ! -path "./.venv/*" \
+    ! -name "Doxyfile" \
+    ! -name ".clang-format" \
+    ! -name "llm_compat_output.md" \
+    ! -name "CMakeLists.txt.user" \
+    ! -iname "*.png" \
+    ! -iname "*.jpg" \
+    ! -iname "*.jpeg" \
+    ! -iname "*.svg" \
+    -exec du -h {} + | sort -rh | head -n 5
+```
+Result (from my `DevNotes`-repo):
+```bash
+12M     ./BeenThereSeenThat/20231117_NVIDIA_III_Reinventing_the_Complete_Cybersecurity_Stack_With_AI_Language_Models/cyberllmbrichardsonnov231699896951061.pdf
+8.5M    ./BeenThereSeenThat/20231117_NVIDIA_IV_Run_your_own_LLM/llmdevdaysession41699985599696.pdf
+3.6M    ./BeenThereSeenThat/20231117_NVIDIA_II_Tailoring_LLMs_to_Your_Use_Case/llmdevdaysession2final1699896189333.pdf
+3.6M    ./BeenThereSeenThat/20230824_Google_Munich_GenAI/Product_Data_Analysis.ipynb
+2.5M    ./BeenThereSeenThat/20231117_NVIDIA_I_The_Fast_Path_to_Developing_with_LLMs/llmdevdaysession1stakeholderreviewdt202311151700153986852.pdf
+```
+
 ## wipe a drive
 * create the filler
 ```bash

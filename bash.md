@@ -443,10 +443,8 @@ qtcreator 12.0.1-2
 
 ## manjaro linux: one full update for all package-managers please
 * first regular pacman, then the self-built stuff (like VS Code and Chrome), then snap, then flatpak:  
-`sudo pacman -Syyu && echo "----------" && sudo pamac update -a && echo "----------" && sudo snap refresh && echo "----------" && sudo flatpak update`
-
-### timed version
-* `time (sudo pacman -Syyu && echo "----------" && sudo pamac update -a && echo "----------" && sudo snap refresh && echo "----------" && sudo flatpak update)`
+  * fixed version, when failing with that executable flag for cnijfilter2
+  * `time ( sudo pacman -Syyu && echo "----------" && yay -Syu --devel --timeupdate && echo "----------" && sudo snap refresh && echo "----------" && flatpak update -y )`
 
 # check the integrity of lzo-images (embedded linux)
 * first install `sudo pacman -Syu lzop`

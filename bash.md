@@ -665,3 +665,13 @@ Share internet:	sudo nmcli connection modify Hotspot ipv4.method shared
 Auto-start at boot:	sudo nmcli connection modify Hotspot connection.autoconnect yes  
 Stop hotspot:	sudo nmcli connection down Hotspot
 ```
+
+## Samsung T7 external SSD - working with Windows, problem mounting on Manjaro Linux
+* volume i dirty and force flag is not set
+* I assume it is NTFS ..
+```bash
+sudo mkdir -p /mnt/samsung                                                                                                                                                                                                                   ✔ 
+sudo mount -t ntfs3 -o ro /dev/sdc1 /mnt/samsung
+```
+
+Check before with `lsblk -f` the partition!

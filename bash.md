@@ -361,7 +361,7 @@ echo "cpu check end ----------------------"
 
 ## compare the content of two zip-files
 `diff <(unzip -l zipfile1.zip) <(unzip -l zipfile2.zip)`
-note: if the contained files have different creation dats, this is a difference as well
+note: if the contained files have different creation dates, this is a difference as well
 
 # check if a port on a device is open/closed/filtered
 Eitehr netcat (nc), nmap or traceroute (tracepath).
@@ -466,7 +466,7 @@ qtcreator 12.0.1-2
 * filtered: `journalctl _COMM=P118`
 * filtered: `journalctl SYSLOG_IDENTIFIER=P118`
 
-# Determine the SLOC for all *.py-files in the current directory (no subdirs!)
+# determine the SLOC for all *.py-files in the current directory (no subdirs!)
 `find . -maxdepth 1 -name '*.py' -exec wc -l {} + | awk '{s+=$1} END {print s}'`
 
 # purge git history
@@ -675,3 +675,14 @@ sudo mount -t ntfs3 -o ro /dev/sdc1 /mnt/samsung
 ```
 
 Check before with `lsblk -f` the partition!
+
+## Rsync with check
+```bash
+rsync -aHAX --info=progress2,stats --itemize-changes \
+  --ignore-existing \
+  --exclude='$RECYCLE.BIN/' \
+  --exclude='System Volume Information/' \
+  --exclude='RECYCLER/' \
+  --exclude='RECYCLED/' \
+  /mnt/samsung/  /run/media/mpetrick/VM_backups/
+```

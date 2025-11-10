@@ -586,7 +586,7 @@ done) > llm_compat_output.md
 When there are several huge files, the figure out what causes this (based on the previous exclusion):
 
 ```bash
- find . -type f \                                                                                                                                                                                                                        ✔ 
+ find . -type f \
     ! -path "./build/*" \
     ! -path "./assets/*" \
     ! -path "./.git/*" \

@@ -568,6 +568,9 @@ find . -type f \
     ! -path "./assets/*" \
     ! -path "./.git/*" \
     ! -path "./.venv/*" \
+    ! -path "*/__pycache__/*" \
+    ! -name "*.pyc" \
+    ! -name "*.pyo" \
     ! -name "Doxyfile" \
     ! -name ".clang-format" \
     ! -name "llm_compat_output.md" \
@@ -576,6 +579,18 @@ find . -type f \
     ! -iname "*.jpg" \
     ! -iname "*.jpeg" \
     ! -iname "*.svg" \
+    ! -iname "*.gif" \
+    ! -iname "*.sqlite" \
+    ! -iname "*.sqlite3" \
+    ! -iname "*.db" \
+    ! -iname "*.zip" \
+    ! -iname "*.a" \
+    ! -iname "*.mp4" \
+    ! -iname "*.pdf" \
+    ! -iname "*.eap" \
+    ! -iname "*CAN-PROXY" \
+    ! -iname "*.docx" \
+    ! -iname "*.bin" \
 | while read -r f; do
     echo "-------------------- $f --------------------"
     cat "$f"

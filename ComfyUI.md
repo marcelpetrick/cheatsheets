@@ -1,4 +1,4 @@
-# How to get it up and running on a hybrid Intel/Nvidia setup with Manjaor Linux
+# How to get it up and running on a hybrid Intel/Nvidia setup with Manjaro Linux
 * install the non-free drivers
 * make sure to upgrade to latest kernel, etc and update all packages
 * reboot
@@ -9,7 +9,6 @@
 * python -m venv venv\nsource venv/bin/activate\npip install -r requirements.txt\n
 * python --version
 * python main.py\n
-
 
 ```
  python main.py                                                                      ✔  ComfyUI  

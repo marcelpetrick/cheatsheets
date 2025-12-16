@@ -44,8 +44,10 @@ Starting server
 To see the GUI go to: http://127.0.0.1:8188
 ```
 
-
 ## model problems
 * test with photo: flux v2
   * download all of them (from the dialog)
   * where to place them?
+
+### minimal model test:
+* try this: https://chatgpt.com/c/694027f9-8ab4-832c-bd38-598851195f8d

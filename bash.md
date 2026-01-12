@@ -699,3 +699,6 @@ rsync -aHAX --info=progress2,stats --itemize-changes \
   --exclude='RECYCLED/' \
   /mnt/samsung/  /run/media/mpetrick/VM_backups/
 ```
+
+## iterate over all processes and find the one with  `burger` in the name and list the path of the executable
+` for p in /proc/[0-9]*; do   pid=${p##*/};   exe=$(readlink -f $p/exe 2>/dev/null);   [ -n "$exe" ] && echo "$pid $exe"; done | grep burger`

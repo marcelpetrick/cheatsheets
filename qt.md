@@ -151,3 +151,47 @@ grep -rE --include='*.qml' '^[[:space:]]*import[[:space:]]+[[:alnum:].]+[[:space
 ./qml/SystemInfoView.qml:import com.org 1.0
 ./qml/AppsView.qml:import com.org 1.0
 ```
+
+-------
+
+### drawing calls / scenegraph debugging on target
+
+#### Short summary (etnaviv + Qt 6 QML)
+
+Seeing **~20 draw calls in Gallium HUD is normal**. Gallium counts **every GPU draw per frame**, including Qt Quick **scenegraph batches, clears, and offscreen passes**. Text, clipping, layers, and effects quickly push draw calls into the ~15–30 range even for simple UIs.
+
+#### Key commands to test & diagnose
+
+**Gallium HUD (draw calls on screen)**
+
+```bash
+export GALLIUM_HUD=draw-calls,fps
+```
+
+**Qt scenegraph batch / render-pass info**
+
+```bash
+export QSG_INFO=1
+```
+
+**Detailed scenegraph logging (Qt 6)**
+
+```bash
+export QT_LOGGING_RULES="qt.scenegraph.*=true"
+```
+
+**Visualize batching or overdraw**
+
+```bash
+export QSG_VISUALIZE=batches
+# or
+export QSG_VISUALIZE=overdraw
+```
+
+#### What to look for
+
+* `QSG_INFO` **Batches ≈ Gallium draw-calls** → expected
+* Extra render targets → `layer.enabled`, `ShaderEffect`, `MultiEffect`
+* Many batches → mixed textures, `clip: true`, opacity chains, varied text styles
+
+-------

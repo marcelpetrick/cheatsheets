@@ -5,7 +5,14 @@
     git ls-tree -r HEAD | sed -re 's/^.{53}//' | while read filename; do file "$filename"; done | grep -E ': .*text' | sed -r -e 's/: .*//' | while read filename; do git blame -w "$filename"; done | sed -r -e 's/.*\((.*)[0-9]{4}-[0-9]{2}-[0-9]{2} .*/\1/' -e 's/ +$//' | sort | uniq -c
 
 ## Commits per author (requires proper mailmap)
-    git shortlog -sne --no-merges
+```
+git shortlog -sne --no-merges
+```
+
+### ... over the last two years (YTD)
+```
+git shortlog -sn --no-merges --since="$(date -d '2 years ago' +%Y-%m-%d)" | cat  
+```
     
 ### ... and since a certain date for "me"
 ```

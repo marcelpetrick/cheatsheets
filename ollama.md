@@ -16,3 +16,34 @@ eval count:           633 token(s)
 eval duration:        24.167125058s
 eval rate:            26.19 tokens/s
 ```
+
+## problem running Qwen3.5 models - update ollama itself; not managed by package managers
+```
+   ~  ollama run --verbose qwen3.5:9b "Write exactly 1000 tokens about GPUs."                                                                                                                                                                                                      ✔ 
+
+pulling manifest 
+Error: pull model manifest: 412: 
+The model you are attempting to pull requires a newer version of Ollama.
+
+Please download the latest version at:
+
+        https://ollama.com/download
+
+    ~  ollama --version                                                                                                                                                                                                                                                        1 ✘ 
+ollama version is 0.14.3
+    ~  curl -fsSL https://ollama.com/install.sh | sh                                                                                                                                                                                                                             ✔ 
+>>> Cleaning up old version at /usr/local/lib/ollama
+[sudo] password for mpetrick: 
+>>> Installing ollama to /usr/local
+>>> Downloading ollama-linux-amd64.tar.zst
+######################################################################## 100.0%
+>>> Adding ollama user to render group...
+>>> Adding ollama user to video group...
+>>> Adding current user to ollama group...
+>>> Creating ollama systemd service...
+>>> Enabling and starting ollama service...
+>>> NVIDIA GPU installed.
+    ~  ollama --version                                                                                                                                                                                                                                               ✔  1m 45s  
+ollama version is 0.17.5
+    ~  ollama run --verbose qwen3.5:9b "Write exactly 1000 tokes about GPU" 
+```

@@ -47,3 +47,7 @@ ollama version is 0.14.3
 ollama version is 0.17.5
     ~  ollama run --verbose qwen3.5:9b "Write exactly 1000 tokes about GPU" 
 ```
+
+## log analysis possible?
+* `ollama run --verbose qwen3.5:0.8b "$(journalctl -n 20 --no-pager -o short-iso | sed 's/"/\\"/g' | awk 'BEGIN{print "Analyze the following journalctl logs. Identify errors or warnings. If everything looks normal, explicitly state that no issues are detected.\n\nLogs:\n"} {print}')"`
+  *  does never finish - neither with 20 or 5 lines ..

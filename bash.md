@@ -732,3 +732,17 @@ Connecting to host 192.168.100.51, port 5201
 
 iperf Done.
 ```
+
+## limit the journal output for JSON to 100 MiByte (but do not do a hard cut)
+```sh
+journalctl -o json | jq -c '
+  reduce inputs as $line (
+    {size:0, out:[]} ;
+    if .size < 100*1024*1024 then
+      {size: .size + ($line|tostring|length), out: .out + [$line]}
+    else
+      .
+    end
+  ) | .out[]
+' > precision5570_all_20260320.json
+```

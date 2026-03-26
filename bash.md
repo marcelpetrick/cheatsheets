@@ -746,3 +746,8 @@ journalctl -o json | jq -c '
   ) | .out[]
 ' > precision5570_all_20260320.json
 ```
+
+## best way to generate properly rendered PDF out of Markdown (md)
+```sh
+ pandoc infile.md -o infile.md.pdf                 
+```

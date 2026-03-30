@@ -751,3 +751,76 @@ journalctl -o json | jq -c '
 ```sh
  pandoc infile.md -o infile.md.pdf                 
 ```
+
+## Dell Precision 5570 - firmware update for all components
+
+### 0. Install & enable fwupd
+
+```bash
+sudo pacman -S fwupd
+sudo systemctl enable --now fwupd.service
+```
+
+### 1. Refresh firmware metadata
+
+```bash
+fwupdmgr refresh --force
+```
+
+**What it does:**
+Downloads latest firmware metadata from LVFS (Linux Vendor Firmware Service).
+
+### 2. List detected devices
+
+```bash
+fwupdmgr get-devices
+```
+
+**What it does:**
+Shows all updatable components (BIOS, dock, NVMe, etc.).
+
+### 3. Check available updates
+
+```bash
+fwupdmgr get-updates
+```
+
+**What it does:**
+Lists firmware updates available for your hardware.
+
+### 4. Prepare system (IMPORTANT)
+
+Before updating:
+
+* Connect **AC power**
+* For dock updates:
+
+  * Disconnect **all peripherals (USB, monitors, ethernet)**
+  * Keep only **dock power + laptop connection**
+* Do **NOT** suspend or unplug during update
+
+Optional: reset dock
+
+```bash
+# unplug dock power for ~30 seconds, then reconnect
+```
+
+### 5. Run update
+
+```bash
+sudo fwupdmgr update
+```
+
+**What happens:**
+
+* Dock components update live via USB
+* BIOS updates are staged → applied on reboot
+
+### 6. Reboot (if requested)
+
+```bash
+reboot
+```
+
+**What happens:**
+* BIOS/UEFI firmware updates during boot (capsule update)

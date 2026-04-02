@@ -195,3 +195,10 @@ export QSG_VISUALIZE=overdraw
 * Many batches → mixed textures, `clip: true`, opacity chains, varied text styles
 
 -------
+
+## Enforce logging of qDebug, qInfo also to the app-lifetime-windows with QtCreator (19)
+* add to the run settings, the variables
+```sh
+QT_LOGGING_RULES="*.debug=true;*.info=true"
+QT_FORCE_STDERR_LOGGING=1
+```

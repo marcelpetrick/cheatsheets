@@ -202,3 +202,16 @@ export QSG_VISUALIZE=overdraw
 QT_LOGGING_RULES="*.debug=true;*.info=true"
 QT_FORCE_STDERR_LOGGING=1
 ```
+
+## Build custom qtdeviceutilities
+```
+mkdir build
+cd build
+
+/home/ps/Documents/p118/Qt/6.8.7/gcc_64/bin/qt-cmake .. \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_INSTALL_PREFIX=/home/ps/Documents/p118/Qt/6.8.7/gcc_64/
+
+cmake --build . --parallel
+cmake --install .
+```

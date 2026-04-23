@@ -72,49 +72,51 @@ git reset --hard
     > Applying: fakename: added missing checks for different SDK-method-calls; fixed some typos
 
 ## List all files of certain type in the repo
-```git ls-files '*.svg'```
+```sh
+git ls-files '*.svg'
+```
 
 ## Count the amount of commits between certain commits/tags
-```
+```sh
 $ git rev-list --count v00.01.182 ^v00.00.167
 15
 ```
 
 ## list all existing branches (just remote) with author and change date
-```
+```sh
 git for-each-ref --format='%(committerdate) %09 %(authorname) %09 %(refname)' | sort -k5n -k2M -k3n -k4n | grep "/origin/"
 ```
 
 ## size of the repo itself (excluding files, which are maybe just compilation artifacts)
-```
+```sh
 du -sh .git
 ```
 
 ## LFS (large file system): fix the mini-file-sizes
-```bash
+```sh
 cd <repository-directory>
 git lfs install
 git lfs pull
 ```
 
 ## push without changes
-```bash
+```sh
 git commit --amend --no-edit
 git push --force
 ```
 
 ## Prevent that additional changes to a file are appearing in the change list (and then get committed)
-```bash
+```sh
 git update-index --assume-unchanged config.ini
 ```
 
 ## Determine where the current branch branched from `development` and then create a patchfile (from head to that point) - output to stdout
-```bash
+```sh
 git diff "$(git merge-base $(git rev-parse --abbrev-ref HEAD) development)" HEAD   
 ```
 
 ## Commit message for typos
-```
+```text
 fix(docs): correct typos found during code review
 
 Non-functional changes only:
@@ -123,4 +125,10 @@ Non-functional changes only:
 - No variables, logic, or functional code was modified.
 
 Signed-off-by: Marcel Petrick <mail@marcelpetrick.it>
+```
+
+## check if a certain directory is ignored (files with changes don't show up in the status)
+```sh
+git check-ignore -v dist
+.gitignore:13:dist/     dist
 ```

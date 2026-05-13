@@ -824,3 +824,6 @@ reboot
 
 **What happens:**
 * BIOS/UEFI firmware updates during boot (capsule update)
+
+## show 20 most big directories for root /
+`sudo du -xh / | sort -rh | head -20`

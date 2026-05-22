@@ -827,3 +827,9 @@ reboot
 
 ## show 20 most big directories for root /
 `sudo du -xh / | sort -rh | head -20`
+
+## check that no string `joy` exists anymore (upper and lower case; exclude binaries and ts-files)
+```sh
+git grep -I -i 'joy' -- ':(exclude)*.ts'| wc
+      0       0       0
+```

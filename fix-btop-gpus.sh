@@ -29,16 +29,53 @@ set_or_add() {
   fi
 }
 
-set_or_add "custom_gpu_name0" '"Intel Iris Xe Graphics"'
-set_or_add "custom_gpu_name1" '"NVIDIA RTX A2000 8GB Laptop GPU"'
+# Detect GPU order dynamically from DRM cards
+declare -A GPU_NAMES
 
-# Show GPU boxes if your btop build supports them
+for card in /sys/class/drm/card*/device/vendor; do
+  idx=$(basename "$(dirname "$(dirname "$card")")" | sed 's/card//')
+  vendor=$(cat "$card")
+
+  case "$vendor" in
+    0x10de)
+      GPU_NAMES[$idx]='"NVIDIA RTX A2000 8GB Laptop GPU"'
+      ;;
+    0x8086)
+      GPU_NAMES[$idx]='"Intel Iris Xe Graphics"'
+      ;;
+    *)
+      GPU_NAMES[$idx]='"Unknown GPU"'
+      ;;
+  esac
+done
+
+# Apply names according to actual kernel enumeration
+for idx in "${!GPU_NAMES[@]}"; do
+  set_or_add "custom_gpu_name${idx}" "${GPU_NAMES[$idx]}"
+done
+
+# Clear unused custom names
+for idx in 2 3 4 5; do
+  set_or_add "custom_gpu_name${idx}" '""'
+done
+
+# Ensure GPU boxes are shown
 set_or_add "shown_boxes" '"cpu mem net proc gpu0 gpu1"'
 
-echo "Done. Backup saved next to:"
-echo "$CONF"
 echo
-echo "Now start:"
+echo "Detected GPU mapping:"
+for idx in "${!GPU_NAMES[@]}"; do
+  echo "  gpu${idx} -> ${GPU_NAMES[$idx]}"
+done
+
+echo
+echo "Config updated:"
+echo "  $CONF"
+
+echo
+echo "Now restart btop:"
 echo "  btop"
+
 echo
-echo "Inside btop, press 5/6 or p if the GPU boxes are hidden by the current preset."
+echo "Tip:"
+echo "  Press 5/6 or p inside btop if GPU panels are hidden by the current preset."

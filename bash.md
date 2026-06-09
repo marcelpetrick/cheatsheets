@@ -833,3 +833,8 @@ reboot
 git grep -I -i 'joy' -- ':(exclude)*.ts'| wc
       0       0       0
 ```
+
+# Add Access Control List (ACL) entry granting the user mpetrick read and write permission on the device file /dev/ttyACM0.
+```sh
+sudo setfacl -m u:mpetrick:rw /dev/ttyACM0
+```

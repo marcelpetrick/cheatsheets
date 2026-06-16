@@ -834,7 +834,33 @@ git grep -I -i 'joy' -- ':(exclude)*.ts'| wc
       0       0       0
 ```
 
-# Add Access Control List (ACL) entry granting the user mpetrick read and write permission on the device file /dev/ttyACM0.
+## Add Access Control List (ACL) entry granting the user mpetrick read and write permission on the device file /dev/ttyACM0.
 ```sh
 sudo setfacl -m u:mpetrick:rw /dev/ttyACM0
+```
+
+## Count lines of code (LoC) for a project
+* example for one which was Python-based
+```sh
+❯ time cloc . \
+  --exclude-dir=.git,__pycache__,.venv,venv,env,build,dist,.mypy_cache,.pytest_cache \
+  --exclude-ext=md,txt,rst
+      82 text files.
+      62 unique files.                              
+      26 files ignored.
+
+github.com/AlDanial/cloc v 2.08  T=0.08 s (772.4 files/s, 255902.9 lines/s)
+-------------------------------------------------------------------------------
+Language                     files          blank        comment           code
+-------------------------------------------------------------------------------
+Python                          50           3094            324          11699
+Qt Linguist                      4              0              0           4384
+Bourne Shell                     3            108              0            577
+YAML                             2             24              0            179
+TOML                             1             15              0             83
+HTML                             2              0              0             53
+-------------------------------------------------------------------------------
+SUM:                            62           3241            324          16975
+-------------------------------------------------------------------------------
+cloc .  --exclude-ext=md,txt,rst  0.15s user 0.01s system 99% cpu 0.159 total
 ```
